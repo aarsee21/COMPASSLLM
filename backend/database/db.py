@@ -1,23 +1,36 @@
+from __future__ import annotations
+
 from collections.abc import Generator
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
+import psycopg2
+import psycopg2.extras
+import psycopg2.pool
 
 from config import get_settings
 
 settings = get_settings()
 
-engine = create_engine(settings.database_url, pool_pre_ping=True)
-SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False, class_=Session)
+_pool: psycopg2.pool.ThreadedConnectionPool | None = None
 
 
-class Base(DeclarativeBase):
-    pass
+def _get_pool() -> psycopg2.pool.ThreadedConnectionPool:
+    global _pool
+    if _pool is None:
+        _pool = psycopg2.pool.ThreadedConnectionPool(
+            minconn=1,
+            maxconn=10,
+            dsn=settings.database_url,
+        )
+    return _pool
 
 
-def get_db() -> Generator[Session, None, None]:
-    db = SessionLocal()
+def get_db() -> Generator[psycopg2.extensions.connection, None, None]:
+    pool = _get_pool()
+    conn = pool.getconn()
     try:
-        yield db
+        yield conn
+    except Exception:
+        conn.rollback()
+        raise
     finally:
-        db.close()
+        pool.putconn(conn)

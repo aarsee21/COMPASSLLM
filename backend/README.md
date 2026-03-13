@@ -1,4 +1,4 @@
-# Backend: LLM-Assisted ML Model Recommendation
+# Backend: COMPASS-LLM Model Recommendation
 
 This backend provides a complete FastAPI pipeline for:
 
@@ -44,7 +44,7 @@ alembic -c alembic.ini upgrade head
 6. Start API server:
 
 ```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+uvicorn main:app --reload --host 0.0.0.0 --port 10120
 ```
 
 ## Endpoints

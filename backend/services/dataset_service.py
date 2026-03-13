@@ -2,11 +2,11 @@ import uuid
 from pathlib import Path
 
 import pandas as pd
+import psycopg2.extensions
+import psycopg2.extras
 from fastapi import HTTPException, UploadFile
-from sqlalchemy.orm import Session
 
 from config import get_settings
-from database.models import Dataset
 
 settings = get_settings()
 
@@ -22,7 +22,10 @@ def get_dataset_csv_path(dataset_id: uuid.UUID) -> Path:
     return upload_dir / f"{dataset_id}.csv"
 
 
-async def save_uploaded_dataset(file: UploadFile, db: Session) -> tuple[Dataset, pd.DataFrame]:
+async def save_uploaded_dataset(
+    file: UploadFile,
+    conn: psycopg2.extensions.connection,
+) -> tuple[dict, pd.DataFrame]:
     if not file.filename or not file.filename.lower().endswith(".csv"):
         raise HTTPException(status_code=400, detail="Only CSV files are supported.")
 
@@ -42,20 +45,30 @@ async def save_uploaded_dataset(file: UploadFile, db: Session) -> tuple[Dataset,
         target_path.unlink(missing_ok=True)
         raise HTTPException(status_code=400, detail="Uploaded CSV is empty.")
 
-    dataset = Dataset(id=dataset_id, name=file.filename, rows=len(df), columns=len(df.columns))
-    db.add(dataset)
-    db.commit()
-    db.refresh(dataset)
+    with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cur.execute(
+            "INSERT INTO datasets (id, name, rows, columns) VALUES (%s, %s, %s, %s) RETURNING *",
+            (str(dataset_id), file.filename, len(df), len(df.columns)),
+        )
+        dataset = dict(cur.fetchone())
+    conn.commit()
 
     return dataset, df
 
 
-def load_dataset_dataframe(dataset_id: uuid.UUID, db: Session) -> tuple[Dataset, pd.DataFrame]:
-    dataset = db.get(Dataset, dataset_id)
-    if dataset is None:
+def load_dataset_dataframe(
+    dataset_id_str: str,
+    conn: psycopg2.extensions.connection,
+) -> tuple[dict, pd.DataFrame]:
+    with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cur.execute("SELECT * FROM datasets WHERE id = %s", (dataset_id_str,))
+        row = cur.fetchone()
+
+    if row is None:
         raise HTTPException(status_code=404, detail="Dataset not found.")
 
-    csv_path = get_dataset_csv_path(dataset_id)
+    dataset = dict(row)
+    csv_path = get_dataset_csv_path(uuid.UUID(dataset_id_str))
     if not csv_path.exists():
         raise HTTPException(status_code=404, detail="Dataset file not found in storage.")
 

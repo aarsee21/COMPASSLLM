@@ -1,72 +1,79 @@
-import uuid
-from datetime import datetime
+from __future__ import annotations
 
-from sqlalchemy import DateTime, Float, ForeignKey, Integer, Text
-from sqlalchemy.dialects.postgresql import JSONB, UUID
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+import psycopg2.extensions
 
-from database.db import Base
+_DDL = """
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
-CASCADE_ALL_DELETE_ORPHAN = "all, delete-orphan"
-DATASETS_ID_FK = "datasets.id"
+CREATE TABLE IF NOT EXISTS datasets (
+    id            UUID      PRIMARY KEY DEFAULT gen_random_uuid(),
+    name          TEXT      NOT NULL,
+    rows          INTEGER   NOT NULL,
+    columns       INTEGER   NOT NULL,
+    target_column TEXT,
+    created_at    TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS dataset_features (
+    id              UUID    PRIMARY KEY DEFAULT gen_random_uuid(),
+    dataset_id      UUID    NOT NULL REFERENCES datasets(id) ON DELETE CASCADE,
+    num_samples     INTEGER NOT NULL,
+    num_features    INTEGER NOT NULL,
+    num_numeric     INTEGER NOT NULL,
+    num_categorical INTEGER NOT NULL,
+    missing_ratio   FLOAT   NOT NULL,
+    imbalance_ratio FLOAT   NOT NULL,
+    UNIQUE (dataset_id)
+);
+
+CREATE TABLE IF NOT EXISTS recommendations (
+    id                 UUID  PRIMARY KEY DEFAULT gen_random_uuid(),
+    dataset_id         UUID  NOT NULL REFERENCES datasets(id) ON DELETE CASCADE,
+    recommended_models JSONB NOT NULL,
+    reasoning          TEXT  NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS experiments (
+    id            UUID      PRIMARY KEY DEFAULT gen_random_uuid(),
+    dataset_id    UUID      NOT NULL REFERENCES datasets(id) ON DELETE CASCADE,
+    model_name    TEXT      NOT NULL,
+    accuracy      FLOAT     NOT NULL,
+    precision     FLOAT     NOT NULL,
+    recall        FLOAT     NOT NULL,
+    f1_score      FLOAT     NOT NULL,
+    training_time FLOAT     NOT NULL,
+    created_at    TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS model_artifacts (
+    id            UUID      PRIMARY KEY DEFAULT gen_random_uuid(),
+    dataset_id    UUID      NOT NULL REFERENCES datasets(id) ON DELETE CASCADE,
+    model_name    TEXT      NOT NULL,
+    artifact_path TEXT      NOT NULL,
+    created_at    TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS knowledge_base_entries (
+    id                          UUID      PRIMARY KEY DEFAULT gen_random_uuid(),
+    dataset_id                  UUID      NOT NULL REFERENCES datasets(id) ON DELETE CASCADE,
+    dataset_name                TEXT      NOT NULL,
+    target_column               TEXT      NOT NULL,
+    recommended_models          JSONB     NOT NULL,
+    reasoning                   TEXT      NOT NULL,
+    system_guidance             JSONB     NOT NULL,
+    best_model                  TEXT      NOT NULL,
+    best_accuracy               FLOAT     NOT NULL,
+    top_recommendation_model    TEXT,
+    top_recommendation_worked   BOOLEAN   NOT NULL DEFAULT FALSE,
+    experiment_count            INTEGER   NOT NULL,
+    created_at                  TIMESTAMP NOT NULL DEFAULT NOW()
+);
+"""
 
 
-class Dataset(Base):
-    __tablename__ = "datasets"
+def create_tables(conn: psycopg2.extensions.connection) -> None:
+    with conn.cursor() as cur:
+        cur.execute(_DDL)
+    conn.commit()
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    name: Mapped[str] = mapped_column(Text, nullable=False)
-    rows: Mapped[int] = mapped_column(Integer, nullable=False)
-    columns: Mapped[int] = mapped_column(Integer, nullable=False)
-    target_column: Mapped[str | None] = mapped_column(Text, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
-
-    features: Mapped["DatasetFeatures | None"] = relationship(
-        back_populates="dataset", cascade=CASCADE_ALL_DELETE_ORPHAN, uselist=False
-    )
-    recommendations: Mapped[list["Recommendation"]] = relationship(
-        back_populates="dataset", cascade=CASCADE_ALL_DELETE_ORPHAN
-    )
-    experiments: Mapped[list["Experiment"]] = relationship(back_populates="dataset", cascade=CASCADE_ALL_DELETE_ORPHAN)
-
-
-class DatasetFeatures(Base):
-    __tablename__ = "dataset_features"
-
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    dataset_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey(DATASETS_ID_FK), nullable=False, unique=True)
-    num_samples: Mapped[int] = mapped_column(Integer, nullable=False)
-    num_features: Mapped[int] = mapped_column(Integer, nullable=False)
-    num_numeric: Mapped[int] = mapped_column(Integer, nullable=False)
-    num_categorical: Mapped[int] = mapped_column(Integer, nullable=False)
-    missing_ratio: Mapped[float] = mapped_column(Float, nullable=False)
-    imbalance_ratio: Mapped[float] = mapped_column(Float, nullable=False)
-
-    dataset: Mapped[Dataset] = relationship(back_populates="features")
-
-
-class Recommendation(Base):
-    __tablename__ = "recommendations"
-
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    dataset_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey(DATASETS_ID_FK), nullable=False)
-    recommended_models: Mapped[list[str]] = mapped_column(JSONB, nullable=False)
-    reasoning: Mapped[str] = mapped_column(Text, nullable=False)
-
-    dataset: Mapped[Dataset] = relationship(back_populates="recommendations")
-
-
-class Experiment(Base):
-    __tablename__ = "experiments"
-
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    dataset_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey(DATASETS_ID_FK), nullable=False)
-    model_name: Mapped[str] = mapped_column(Text, nullable=False)
-    accuracy: Mapped[float] = mapped_column(Float, nullable=False)
-    precision: Mapped[float] = mapped_column(Float, nullable=False)
-    recall: Mapped[float] = mapped_column(Float, nullable=False)
-    f1_score: Mapped[float] = mapped_column(Float, nullable=False)
-    training_time: Mapped[float] = mapped_column(Float, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
-
-    dataset: Mapped[Dataset] = relationship(back_populates="experiments")
+# ---- legacy ORM classes removed; raw SQL is used throughout ----

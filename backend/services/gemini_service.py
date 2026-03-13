@@ -1,11 +1,23 @@
 import json
 import re
+from typing import Any
 
 import google.generativeai as genai
 
 from config import get_settings
 
 settings = get_settings()
+
+
+def _format_sample_rows(rows: list[dict[str, Any]]) -> str:
+    if not rows:
+        return ""
+    headers = list(rows[0].keys())
+    lines = [" | ".join(headers)]
+    lines.append("-" * len(lines[0]))
+    for row in rows:
+        lines.append(" | ".join(str(row.get(h, "")) for h in headers))
+    return "\n".join(lines)
 
 
 def _build_prompt(
@@ -15,25 +27,38 @@ def _build_prompt(
     categorical: int,
     missing_ratio: float,
     imbalance: float,
+    user_instruction: str | None = None,
+    sample_data: list[dict[str, Any]] | None = None,
 ) -> str:
+    instruction_block = (
+        f"\nUser's task description:\n{user_instruction.strip()}\n"
+        if user_instruction and user_instruction.strip()
+        else ""
+    )
+
+    sample_block = ""
+    if sample_data:
+        table = _format_sample_rows(sample_data[:15])
+        sample_block = f"\nSample data rows (up to 15 rows — use these to understand feature types, value ranges, and patterns):\n{table}\n"
+
     return f"""You are a machine learning expert.
 
 Dataset characteristics:
-
 Samples: {samples}
 Features: {features}
 Numeric Features: {numeric}
 Categorical Features: {categorical}
-Missing Value Ratio: {missing_ratio}
-Class Imbalance: {imbalance}
+Missing Value Ratio: {missing_ratio:.4f}
+Class Imbalance Ratio: {imbalance:.4f}
+{instruction_block}{sample_block}
+Based on the above, recommend the best 3 machine learning classification models.
+Consider: dataset size, feature types, class imbalance, missing data, and the user's stated goal.
 
-Recommend the best 3 machine learning models for this dataset.
-
-Return JSON format:
+Return ONLY valid JSON in this exact format:
 
 {{
-  \"models\": [\"Random Forest\", \"SVM\", \"XGBoost\"],
-  \"reasoning\": \"Explanation\"
+  "models": ["Model Name 1", "Model Name 2", "Model Name 3"],
+  "reasoning": "Detailed explanation of why these models suit this dataset and task."
 }}
 """
 
@@ -66,11 +91,16 @@ def recommend_models_with_gemini(
     categorical: int,
     missing_ratio: float,
     imbalance: float,
+    user_instruction: str | None = None,
+    sample_data: list[dict[str, Any]] | None = None,
 ) -> dict[str, object]:
     if not settings.gemini_api_key:
         return _fallback_recommendation()
 
-    prompt = _build_prompt(samples, features, numeric, categorical, missing_ratio, imbalance)
+    prompt = _build_prompt(
+        samples, features, numeric, categorical,
+        missing_ratio, imbalance, user_instruction, sample_data,
+    )
 
     try:
         genai.configure(api_key=settings.gemini_api_key)

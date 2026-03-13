@@ -5,12 +5,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "LLM-Assisted ML Model Recommendation System"
+    app_name: str = "COMPASS-LLM Model Recommendation System"
     app_host: str = "0.0.0.0"
-    app_port: int = 8000
+    app_port: int = 10120
     app_debug: bool = True
 
-    database_url: str = "postgresql://user:password@localhost/mlsystem"
+    database_url: str = "postgresql://postgres:postgres@localhost/mlsystem"
     gemini_api_key: str | None = None
     gemini_model: str = "gemini-1.5-pro"
 
@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     ]
 
     upload_dir: Path = Path("uploads")
+    model_artifacts_dir: Path = Path("model_artifacts")
     auto_create_tables: bool = True
 
     model_config = SettingsConfigDict(

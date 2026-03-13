@@ -3,7 +3,6 @@ import math
 import numpy as np
 import pandas as pd
 from fastapi import HTTPException
-from pymfe.mfe import MFE
 
 
 def _safe_float(value: object) -> float | None:
@@ -20,21 +19,64 @@ def _safe_float(value: object) -> float | None:
     return None
 
 
-def _extract_pymfe_features(X: pd.DataFrame, y: pd.Series) -> dict[str, float | int | str | None]:
-    x_encoded = pd.get_dummies(X, dummy_na=True)
-    y_codes = pd.Categorical(y.astype(str)).codes
+def _compute_meta_features(X: pd.DataFrame, y: pd.Series) -> dict[str, float | int | None]:
+    """Compute dataset meta-features using pandas/numpy (no pymfe dependency)."""
+    num_df = X.select_dtypes(include=["number", "bool"])
+    cat_df = X.select_dtypes(exclude=["number", "bool"])
 
-    mfe = MFE()
-    mfe.fit(x_encoded.to_numpy(), y_codes)
-    ft_names, ft_values = mfe.extract()
+    # --- basic counts ---
+    nr_inst = len(X)
+    nr_attr = X.shape[1]
+    nr_num = num_df.shape[1]
+    nr_cat = cat_df.shape[1]
+    nr_class = int(y.astype(str).nunique())
 
-    extracted: dict[str, float | int | str | None] = {}
-    for name, value in zip(ft_names, ft_values):
-        safe_value = _safe_float(value)
-        extracted[name] = safe_value if safe_value is not None else str(value)
+    # --- missing values ---
+    nr_missing_values = int(X.isna().sum().sum())
+    pct_missing = float(nr_missing_values / max(nr_inst * nr_attr, 1))
 
-    # Keep payload small and focused for API response.
-    return dict(list(extracted.items())[:20])
+    # --- class stats ---
+    class_freqs = y.astype(str).value_counts(normalize=True)
+    majority_class_pct = float(class_freqs.iloc[0]) if len(class_freqs) else 1.0
+    minority_class_pct = float(class_freqs.iloc[-1]) if len(class_freqs) > 1 else majority_class_pct
+    class_entropy = float(
+        -sum(p * math.log2(p) for p in class_freqs if p > 0)
+    ) if len(class_freqs) > 1 else 0.0
+
+    # --- numeric feature stats ---
+    if nr_num > 0:
+        skewness = _safe_float(num_df.skew().mean())
+        kurtosis = _safe_float(num_df.kurtosis().mean())
+        mean_corr = _safe_float(
+            num_df.corr().abs().where(
+                np.triu(np.ones(num_df.corr().shape), k=1).astype(bool)
+            ).stack().mean()
+            if nr_num > 1 else np.nan
+        )
+    else:
+        skewness = kurtosis = mean_corr = None
+
+    # --- categorical cardinality ---
+    mean_cat_cardinality = (
+        float(cat_df.nunique().mean()) if nr_cat > 0 else None
+    )
+
+    return {
+        "nr_inst": nr_inst,
+        "nr_attr": nr_attr,
+        "nr_num": nr_num,
+        "nr_cat": nr_cat,
+        "nr_class": nr_class,
+        "nr_missing_values": nr_missing_values,
+        "pct_missing": pct_missing,
+        "majority_class_pct": majority_class_pct,
+        "minority_class_pct": minority_class_pct,
+        "class_entropy": class_entropy,
+        "mean_skewness": skewness,
+        "mean_kurtosis": kurtosis,
+        "mean_feature_correlation": mean_corr,
+        "mean_cat_cardinality": mean_cat_cardinality,
+    }
 
 
 def compute_dataset_meta_features(df: pd.DataFrame, target_column: str) -> dict[str, object]:
@@ -60,7 +102,7 @@ def compute_dataset_meta_features(df: pd.DataFrame, target_column: str) -> dict[
     else:
         imbalance_ratio = float(class_counts.max() / max(class_counts.min(), 1e-12))
 
-    pymfe_features = _extract_pymfe_features(X, y)
+    meta_features = _compute_meta_features(X, y)
 
     return {
         "number_of_samples": num_samples,
@@ -70,5 +112,5 @@ def compute_dataset_meta_features(df: pd.DataFrame, target_column: str) -> dict[
         "missing_value_ratio": missing_ratio,
         "class_distribution": class_distribution,
         "imbalance_ratio": imbalance_ratio,
-        "pymfe_meta_features": pymfe_features,
+        "meta_features": meta_features,
     }
