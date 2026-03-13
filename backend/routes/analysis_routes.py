@@ -1,3 +1,4 @@
+import json
 from typing import Annotated
 
 import psycopg2.extensions
@@ -5,7 +6,7 @@ from fastapi import APIRouter, Depends
 
 from database.db import get_db
 from schemas.api_schemas import AnalyzeRequest, AnalyzeResponse
-from services.dataset_service import load_dataset_dataframe
+from services.dataset_service import apply_dataset_column_selection, load_dataset_dataframe
 from services.feature_extraction_service import compute_dataset_meta_features
 
 router = APIRouter(prefix="/datasets", tags=["analysis"])
@@ -16,14 +17,15 @@ def analyze_dataset(
     payload: AnalyzeRequest,
     db: Annotated[psycopg2.extensions.connection, Depends(get_db)],
 ) -> AnalyzeResponse:
-    dataset, df = load_dataset_dataframe(str(payload.dataset_id), db)
+    _, df = load_dataset_dataframe(str(payload.dataset_id), db)
+    filtered_df, excluded_columns = apply_dataset_column_selection(df, payload.target_column, payload.excluded_columns)
 
-    metadata = compute_dataset_meta_features(df, payload.target_column)
+    metadata = compute_dataset_meta_features(filtered_df, payload.target_column, excluded_columns)
 
     with db.cursor() as cur:
         cur.execute(
-            "UPDATE datasets SET target_column = %s WHERE id = %s",
-            (payload.target_column, str(payload.dataset_id)),
+            "UPDATE datasets SET target_column = %s, excluded_columns = %s::jsonb WHERE id = %s",
+            (payload.target_column, json.dumps(excluded_columns), str(payload.dataset_id)),
         )
         cur.execute(
             "SELECT id FROM dataset_features WHERE dataset_id = %s",

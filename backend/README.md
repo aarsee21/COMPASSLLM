@@ -1,62 +1,86 @@
-# Backend: COMPASS-LLM Model Recommendation
+# COMPASSLLM Backend
 
-This backend provides a complete FastAPI pipeline for:
+FastAPI backend for the COMPASSLLM AutoML workflow.
 
-1. Uploading datasets
-2. Extracting dataset meta-features with PyMFE
-3. Recommending models using Google Gemini
-4. Training ML models and storing experiment metrics
+Repository: `https://github.com/likhithkanigolla/COMPASSLLM`
 
-## Stack
+## Responsibilities
+
+- Accept CSV uploads.
+- Persist dataset metadata in PostgreSQL.
+- Analyze datasets using pandas and numpy derived meta-features.
+- Respect target-column selection and excluded columns.
+- Generate model recommendations with Gemini.
+- Train candidate models with scikit-learn and XGBoost.
+- Save downloadable `.joblib` artifacts.
+- Store experiments and knowledge-base entries.
+
+## Current Stack
 
 - FastAPI
+- psycopg2
 - PostgreSQL
-- SQLAlchemy ORM
-- Alembic
+- pandas
+- numpy
 - scikit-learn
 - XGBoost
-- PyMFE
-- Google Gemini API
+- google-generativeai
 
-## Setup
+## Environment
 
-1. Create and activate a Python virtual environment.
-2. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Copy environment config:
+Copy and edit environment variables:
 
 ```bash
 cp .env.example .env
 ```
 
-4. Update `.env` values (`DATABASE_URL`, `GEMINI_API_KEY`).
+Important values:
 
-5. Run migrations:
+- `DATABASE_URL`
+- `GEMINI_API_KEY`
+- `GEMINI_MODEL`
+- `APP_HOST`
+- `APP_PORT`
+- `AUTO_CREATE_TABLES`
+
+## Setup
 
 ```bash
-alembic -c alembic.ini upgrade head
-```
-
-6. Start API server:
-
-```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 uvicorn main:app --reload --host 0.0.0.0 --port 10120
 ```
 
-## Endpoints
+## Runtime Storage
 
+- Uploaded CSVs: `uploads/`
+- Trained artifacts: `model_artifacts/`
+
+## Key Endpoints
+
+- `GET /health`
 - `POST /datasets/upload`
 - `POST /datasets/analyze`
 - `POST /models/recommend`
 - `POST /models/train`
+- `GET /models/download/{artifact_id}`
+- `GET /models/knowledge-base`
+- `GET /experiments/summary`
 - `GET /experiments/{dataset_id}`
+
+## Analysis Behavior
+
+`POST /datasets/analyze` now accepts:
+
+- `dataset_id`
+- `target_column`
+- `excluded_columns`
+
+The backend stores the target and excluded columns on the dataset, then reuses that filtered feature set during recommendation sampling and training.
 
 ## Notes
 
-- Uploaded CSV files are stored in `backend/uploads/` as `<dataset_uuid>.csv`.
-- If Gemini is unavailable or returns invalid JSON, the API uses safe fallback model recommendations.
-- CORS is enabled for local frontend development.
+- Tables are created automatically on startup when `AUTO_CREATE_TABLES=true`.
+- Restart the backend after pulling schema changes.
+- If Gemini is unavailable, the backend falls back to safe default recommendations.

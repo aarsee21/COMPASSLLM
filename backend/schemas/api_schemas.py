@@ -15,6 +15,14 @@ class DatasetUploadResponse(BaseModel):
 class AnalyzeRequest(BaseModel):
     dataset_id: uuid.UUID
     target_column: str
+    excluded_columns: list[str] = Field(default_factory=list)
+
+
+class ColumnProfile(BaseModel):
+    name: str
+    data_type: str
+    missing_ratio: float
+    unique_count: int
 
 
 class AnalyzeResponse(BaseModel):
@@ -26,6 +34,9 @@ class AnalyzeResponse(BaseModel):
     missing_value_ratio: float
     class_distribution: dict[str, float]
     imbalance_ratio: float
+    included_columns: list[str] = Field(default_factory=list)
+    excluded_columns: list[str] = Field(default_factory=list)
+    column_profiles: list[ColumnProfile] = Field(default_factory=list)
     meta_features: dict[str, float | int | str | None] = Field(default_factory=dict)
 
 

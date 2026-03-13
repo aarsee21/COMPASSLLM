@@ -103,16 +103,6 @@ def _build_models(num_classes: int) -> dict[str, object]:
         "random_state": 42,
     }
 
-
-def _ensure_model_artifact_dir() -> Path:
-    path = Path(__file__).resolve().parent.parent / settings.model_artifacts_dir
-    path.mkdir(parents=True, exist_ok=True)
-    return path
-
-
-def _artifact_filename(dataset_id: str, model_name: str) -> str:
-    safe_name = model_name.lower().replace(" ", "_").replace("-", "_")
-    return f"{dataset_id}_{safe_name}_{uuid.uuid4().hex[:8]}.joblib"
     if num_classes > 2:
         xgb_kwargs.update({"objective": "multi:softprob", "num_class": num_classes})
     else:
@@ -130,6 +120,17 @@ def _artifact_filename(dataset_id: str, model_name: str) -> str:
         "K-Nearest Neighbors": KNeighborsClassifier(n_neighbors=7),
         "XGBoost": XGBClassifier(**xgb_kwargs),
     }
+
+
+def _ensure_model_artifact_dir() -> Path:
+    path = Path(__file__).resolve().parent.parent / settings.model_artifacts_dir
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def _artifact_filename(dataset_id: str, model_name: str) -> str:
+    safe_name = model_name.lower().replace(" ", "_").replace("-", "_")
+    return f"{dataset_id}_{safe_name}_{uuid.uuid4().hex[:8]}.joblib"
 
 
 def train_models(df: pd.DataFrame, target_column: str, dataset_id: str | None = None) -> list[dict[str, float | str]]:

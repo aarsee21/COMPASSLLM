@@ -4,3 +4,4 @@ frontend/.npm-cache/
 backend/uploads/
 backend/.env
 *.pyc
+**/model_artifacts/

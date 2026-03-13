@@ -9,13 +9,31 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from database.db import get_db
 from schemas.api_schemas import RecommendRequest, RecommendResponse
-from services.dataset_service import get_dataset_csv_path
+from services.dataset_service import get_dataset_csv_path, normalize_excluded_columns
 from services.gemini_service import recommend_models_with_gemini
 
 router = APIRouter(prefix="/models", tags=["recommendation"])
 
 
-def _get_random_sample_rows(dataset_id: str, max_rows: int = 15) -> list[dict[str, object]]:
+def _filter_sample_rows(
+    rows: list[dict[str, object]],
+    excluded_columns: list[str] | None,
+) -> list[dict[str, object]]:
+    excluded = set(excluded_columns or [])
+    if not excluded:
+        return rows
+
+    return [
+        {key: value for key, value in row.items() if key not in excluded}
+        for row in rows
+    ]
+
+
+def _get_random_sample_rows(
+    dataset_id: str,
+    excluded_columns: list[str] | None = None,
+    max_rows: int = 15,
+) -> list[dict[str, object]]:
     csv_path = get_dataset_csv_path(uuid.UUID(dataset_id))
     if not csv_path.exists():
         return []
@@ -23,6 +41,9 @@ def _get_random_sample_rows(dataset_id: str, max_rows: int = 15) -> list[dict[st
         df = pd.read_csv(csv_path)
         if df.empty:
             return []
+        normalized_excluded = normalize_excluded_columns(df, target_column="", excluded_columns=excluded_columns)
+        if normalized_excluded:
+            df = df.drop(columns=normalized_excluded, errors="ignore")
         n = min(len(df), max_rows)
         sampled = df.sample(n=n, replace=False)
         return sampled.replace({float("nan"): None}).to_dict(orient="records")
@@ -30,7 +51,14 @@ def _get_random_sample_rows(dataset_id: str, max_rows: int = 15) -> list[dict[st
         return []
 
 
-@router.post("/recommend")
+@router.post(
+    "/recommend",
+    responses={
+        400: {"description": "Dataset has not been analyzed yet."},
+        404: {"description": "Dataset not found."},
+        500: {"description": "Recommendation generation failed."},
+    },
+)
 def recommend_models(
     payload: RecommendRequest,
     db: Annotated[psycopg2.extensions.connection, Depends(get_db)],
@@ -38,8 +66,9 @@ def recommend_models(
     dataset_id_str = str(payload.dataset_id)
 
     with db.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
-        cur.execute("SELECT id FROM datasets WHERE id = %s", (dataset_id_str,))
-        if cur.fetchone() is None:
+        cur.execute("SELECT * FROM datasets WHERE id = %s", (dataset_id_str,))
+        dataset = cur.fetchone()
+        if dataset is None:
             raise HTTPException(status_code=404, detail="Dataset not found.")
 
         cur.execute("SELECT * FROM dataset_features WHERE dataset_id = %s", (dataset_id_str,))
@@ -48,7 +77,8 @@ def recommend_models(
     if features is None:
         raise HTTPException(status_code=400, detail="Dataset has not been analyzed yet.")
 
-    sample_data = payload.sample_data if payload.sample_data else _get_random_sample_rows(dataset_id_str)
+    excluded_columns = list(dataset.get("excluded_columns") or [])
+    sample_data = _filter_sample_rows(payload.sample_data, excluded_columns) if payload.sample_data else _get_random_sample_rows(dataset_id_str, excluded_columns=excluded_columns)
 
     gemini_result = recommend_models_with_gemini(
         samples=features["num_samples"],

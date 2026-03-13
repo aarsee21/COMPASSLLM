@@ -11,6 +11,41 @@ from config import get_settings
 settings = get_settings()
 
 
+def normalize_excluded_columns(
+    df: pd.DataFrame,
+    target_column: str,
+    excluded_columns: list[str] | None,
+) -> list[str]:
+    requested = excluded_columns or []
+    seen: set[str] = set()
+    normalized: list[str] = []
+
+    for column in requested:
+        if column == target_column or column not in df.columns or column in seen:
+            continue
+        seen.add(column)
+        normalized.append(column)
+
+    return normalized
+
+
+def apply_dataset_column_selection(
+    df: pd.DataFrame,
+    target_column: str,
+    excluded_columns: list[str] | None,
+) -> tuple[pd.DataFrame, list[str]]:
+    if target_column not in df.columns:
+        raise HTTPException(status_code=400, detail=f"Target column '{target_column}' not found in dataset.")
+
+    normalized_excluded = normalize_excluded_columns(df, target_column, excluded_columns)
+    filtered_df = df.drop(columns=normalized_excluded) if normalized_excluded else df.copy()
+
+    if len(filtered_df.columns) <= 1:
+        raise HTTPException(status_code=400, detail="At least one feature column must remain after excluding columns.")
+
+    return filtered_df, normalized_excluded
+
+
 def ensure_upload_dir() -> Path:
     upload_dir = Path(__file__).resolve().parent.parent / settings.upload_dir
     upload_dir.mkdir(parents=True, exist_ok=True)
@@ -47,8 +82,8 @@ async def save_uploaded_dataset(
 
     with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
         cur.execute(
-            "INSERT INTO datasets (id, name, rows, columns) VALUES (%s, %s, %s, %s) RETURNING *",
-            (str(dataset_id), file.filename, len(df), len(df.columns)),
+            "INSERT INTO datasets (id, name, rows, columns, excluded_columns) VALUES (%s, %s, %s, %s, %s::jsonb) RETURNING *",
+            (str(dataset_id), file.filename, len(df), len(df.columns), "[]"),
         )
         dataset = dict(cur.fetchone())
     conn.commit()

@@ -11,8 +11,12 @@ CREATE TABLE IF NOT EXISTS datasets (
     rows          INTEGER   NOT NULL,
     columns       INTEGER   NOT NULL,
     target_column TEXT,
+    excluded_columns JSONB  NOT NULL DEFAULT '[]'::jsonb,
     created_at    TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+ALTER TABLE datasets
+ADD COLUMN IF NOT EXISTS excluded_columns JSONB NOT NULL DEFAULT '[]'::jsonb;
 
 CREATE TABLE IF NOT EXISTS dataset_features (
     id              UUID    PRIMARY KEY DEFAULT gen_random_uuid(),

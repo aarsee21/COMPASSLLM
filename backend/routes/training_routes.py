@@ -6,7 +6,7 @@ from fastapi.responses import FileResponse
 
 from database.db import get_db
 from schemas.api_schemas import KnowledgeBaseResponse, TrainRequest, TrainResponse, TrainingResult
-from services.dataset_service import load_dataset_dataframe
+from services.dataset_service import apply_dataset_column_selection, load_dataset_dataframe
 from services.experiment_service import get_model_artifact, replace_experiments, replace_model_artifacts
 from services.knowledge_base_service import create_knowledge_base_entry, get_latest_recommendation, get_rulebook, list_knowledge_base_entries
 from services.model_training_service import train_models
@@ -14,7 +14,10 @@ from services.model_training_service import train_models
 router = APIRouter(prefix="/models", tags=["training"])
 
 
-@router.post("/train")
+@router.post(
+    "/train",
+    responses={400: {"description": "Target column is missing or invalid."}},
+)
 def train_recommended_models(
     payload: TrainRequest,
     db: Annotated[psycopg2.extensions.connection, Depends(get_db)],
@@ -25,7 +28,8 @@ def train_recommended_models(
         raise HTTPException(status_code=400, detail="Target column not set. Run /datasets/analyze first.")
 
     dataset_id_str = str(payload.dataset_id)
-    results = train_models(df, dataset["target_column"], dataset_id=dataset_id_str)
+    filtered_df, _ = apply_dataset_column_selection(df, str(dataset["target_column"]), list(dataset.get("excluded_columns") or []))
+    results = train_models(filtered_df, str(dataset["target_column"]), dataset_id=dataset_id_str)
     replace_experiments(db, dataset_id_str, results)
 
     artifacts = replace_model_artifacts(
@@ -79,7 +83,10 @@ def train_recommended_models(
     )
 
 
-@router.get("/download/{artifact_id}")
+@router.get(
+    "/download/{artifact_id}",
+    responses={404: {"description": "Trained model artifact not found."}},
+)
 def download_trained_model(
     artifact_id: str,
     db: Annotated[psycopg2.extensions.connection, Depends(get_db)],
@@ -92,7 +99,7 @@ def download_trained_model(
     return FileResponse(path=artifact_path, filename=artifact_path.split("/")[-1], media_type="application/octet-stream")
 
 
-@router.get("/knowledge-base", response_model=KnowledgeBaseResponse)
+@router.get("/knowledge-base")
 def get_knowledge_base(
     db: Annotated[psycopg2.extensions.connection, Depends(get_db)],
 ) -> KnowledgeBaseResponse:

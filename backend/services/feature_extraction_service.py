@@ -79,7 +79,36 @@ def _compute_meta_features(X: pd.DataFrame, y: pd.Series) -> dict[str, float | i
     }
 
 
-def compute_dataset_meta_features(df: pd.DataFrame, target_column: str) -> dict[str, object]:
+def _column_data_type(series: pd.Series) -> str:
+    if pd.api.types.is_bool_dtype(series):
+        return "boolean"
+    if pd.api.types.is_numeric_dtype(series):
+        return "numeric"
+    return "categorical"
+
+
+def _build_column_profiles(X: pd.DataFrame) -> list[dict[str, object]]:
+    profiles: list[dict[str, object]] = []
+
+    for column in X.columns:
+        series = X[column]
+        profiles.append(
+            {
+                "name": str(column),
+                "data_type": _column_data_type(series),
+                "missing_ratio": float(series.isna().mean()),
+                "unique_count": int(series.nunique(dropna=True)),
+            }
+        )
+
+    return profiles
+
+
+def compute_dataset_meta_features(
+    df: pd.DataFrame,
+    target_column: str,
+    excluded_columns: list[str] | None = None,
+) -> dict[str, object]:
     if target_column not in df.columns:
         raise HTTPException(status_code=400, detail=f"Target column '{target_column}' not found in dataset.")
 
@@ -103,6 +132,7 @@ def compute_dataset_meta_features(df: pd.DataFrame, target_column: str) -> dict[
         imbalance_ratio = float(class_counts.max() / max(class_counts.min(), 1e-12))
 
     meta_features = _compute_meta_features(X, y)
+    column_profiles = _build_column_profiles(X)
 
     return {
         "number_of_samples": num_samples,
@@ -112,5 +142,8 @@ def compute_dataset_meta_features(df: pd.DataFrame, target_column: str) -> dict[
         "missing_value_ratio": missing_ratio,
         "class_distribution": class_distribution,
         "imbalance_ratio": imbalance_ratio,
+        "included_columns": [str(column) for column in X.columns.tolist()],
+        "excluded_columns": [str(column) for column in (excluded_columns or [])],
+        "column_profiles": column_profiles,
         "meta_features": meta_features,
     }
