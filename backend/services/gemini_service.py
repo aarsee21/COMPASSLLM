@@ -1,12 +1,69 @@
 import json
 import re
 from typing import Any
+from pathlib import Path
 
 import google.generativeai as genai
 
 from config import get_settings
 
 settings = get_settings()
+
+# Load instruction files for a simple RAG setup. Cache on first import.
+_INSTRUCTION_CACHE: dict[str, str] | None = None
+
+
+def _load_instruction_files() -> dict[str, str]:
+    global _INSTRUCTION_CACHE
+    if _INSTRUCTION_CACHE is not None:
+        return _INSTRUCTION_CACHE
+
+    base = Path(__file__).resolve().parents[1]
+    instr_dir = base / "instruction_files"
+    cache: dict[str, str] = {}
+    if instr_dir.exists() and instr_dir.is_dir():
+        for p in sorted(instr_dir.glob("*.txt")):
+            try:
+                cache[p.stem] = p.read_text(encoding="utf-8")
+            except Exception:
+                # skip unreadable files
+                continue
+
+    _INSTRUCTION_CACHE = cache
+    return cache
+
+
+def _retrieve_relevant_instructions(
+    user_instruction: str | None = None, sample_data: list[dict[str, Any]] | None = None, top_k: int = 3
+) -> str:
+    instr = _load_instruction_files()
+    if not instr:
+        return ""
+
+    if not user_instruction and not sample_data:
+        # return top N instructions by filename (stable order)
+        texts = list(instr.values())[:top_k]
+        return "\n\n".join(texts)
+
+    # Simple relevance scoring: count shared words between user_instruction and each instruction text
+    query_text = (user_instruction or "")
+    if sample_data and len(sample_data) > 0:
+        # include a few feature names / example values to the query
+        sample = sample_data[0]
+        query_text += " " + " ".join(str(k) for k in sample.keys())
+
+    q_tokens = set(re.findall(r"\w+", query_text.lower()))
+    scores: list[tuple[int, str]] = []
+    for name, content in instr.items():
+        tokens = set(re.findall(r"\w+", content.lower()))
+        score = len(q_tokens & tokens)
+        scores.append((score, content))
+
+    scores.sort(reverse=True, key=lambda x: x[0])
+    chosen = [c for s, c in scores if s > 0][:top_k]
+    if not chosen:
+        chosen = [c for _, c in scores[:top_k]]
+    return "\n\n".join(chosen)
 
 
 def _format_sample_rows(rows: list[dict[str, Any]]) -> str:
@@ -29,6 +86,7 @@ def _build_prompt(
     imbalance: float,
     user_instruction: str | None = None,
     sample_data: list[dict[str, Any]] | None = None,
+    instruction_context: str | None = None,
 ) -> str:
     instruction_block = (
         f"\nUser's task description:\n{user_instruction.strip()}\n"
@@ -41,6 +99,12 @@ def _build_prompt(
         table = _format_sample_rows(sample_data[:15])
         sample_block = f"\nSample data rows (up to 15 rows — use these to understand feature types, value ranges, and patterns):\n{table}\n"
 
+    instruction_context_block = (
+        f"\nRelevant instruction documents (from the model instruction library):\n{instruction_context}\n"
+        if instruction_context and instruction_context.strip()
+        else ""
+    )
+
     return f"""You are a machine learning expert.
 
 Dataset characteristics:
@@ -50,7 +114,7 @@ Numeric Features: {numeric}
 Categorical Features: {categorical}
 Missing Value Ratio: {missing_ratio:.4f}
 Class Imbalance Ratio: {imbalance:.4f}
-{instruction_block}{sample_block}
+{instruction_block}{sample_block}{instruction_context_block}
 Based on the above, recommend the best 3 machine learning classification models.
 Consider: dataset size, feature types, class imbalance, missing data, and the user's stated goal.
 
@@ -103,8 +167,16 @@ def recommend_models_with_gemini(
     )
 
     try:
+        # Retrieve relevant instruction documents to augment the prompt (RAG)
+        instruction_context = _retrieve_relevant_instructions(user_instruction, sample_data, top_k=3)
+
         genai.configure(api_key=settings.gemini_api_key)
         model = genai.GenerativeModel(settings.gemini_model)
+        prompt = _build_prompt(
+            samples, features, numeric, categorical,
+            missing_ratio, imbalance, user_instruction, sample_data, instruction_context
+        )
+
         response = model.generate_content(prompt)
         text = response.text or ""
         payload = _extract_json_payload(text)
