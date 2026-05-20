@@ -118,7 +118,7 @@ Class Imbalance Ratio: {imbalance:.4f}
 Based on the above, recommend the best 3 machine learning classification models.
 Consider: dataset size, feature types, class imbalance, missing data, and the user's stated goal.
 
-Return ONLY valid JSON in this exact format:
+Return ONLY valid JSON in this exact format. Do not include any additional text, commentary, or explanation outside the JSON object. Keep the reasoning short — no more than 3 sentences.
 
 {{
   "models": ["Model Name 1", "Model Name 2", "Model Name 3"],
@@ -136,6 +136,23 @@ def _extract_json_payload(text: str) -> dict[str, object]:
     if not isinstance(payload, dict):
         raise ValueError("Invalid JSON response shape from Gemini.")
     return payload
+
+
+def _shorten_reasoning(reasoning: str, max_sentences: int = 3, max_chars: int = 320) -> str:
+    cleaned = re.sub(r"\s+", " ", reasoning.strip())
+    sentences = re.split(r"(?<=[.!?])\s+", cleaned)
+    selected: list[str] = []
+    total = 0
+    for sentence in sentences:
+        if not sentence:
+            continue
+        if total + len(sentence) > max_chars and selected:
+            break
+        selected.append(sentence)
+        total += len(sentence)
+        if len(selected) >= max_sentences:
+            break
+    return " ".join(selected).strip()
 
 
 def _fallback_recommendation() -> dict[str, object]:
@@ -189,6 +206,7 @@ def recommend_models_with_gemini(
         if not isinstance(reasoning, str) or not reasoning.strip():
             raise ValueError("Gemini response reasoning field is invalid.")
 
-        return {"models": models[:3], "reasoning": reasoning.strip()}
+        concise_reasoning = _shorten_reasoning(reasoning)
+        return {"models": models[:3], "reasoning": concise_reasoning}
     except Exception:
         return _fallback_recommendation()

@@ -54,6 +54,7 @@ class RecommendResponse(BaseModel):
 
 class TrainRequest(BaseModel):
     dataset_id: uuid.UUID
+    user_instruction: str | None = None
 
 
 class TrainingResult(BaseModel):

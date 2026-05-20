@@ -9,7 +9,7 @@ from schemas.api_schemas import KnowledgeBaseResponse, TrainRequest, TrainRespon
 from services.dataset_service import apply_dataset_column_selection, load_dataset_dataframe
 from services.experiment_service import get_model_artifact, replace_experiments, replace_model_artifacts
 from services.knowledge_base_service import create_knowledge_base_entry, get_latest_recommendation, get_rulebook, list_knowledge_base_entries
-from services.model_training_service import train_models
+from services.model_training_service import select_and_train_models
 
 router = APIRouter(prefix="/models", tags=["training"])
 
@@ -29,7 +29,14 @@ def train_recommended_models(
 
     dataset_id_str = str(payload.dataset_id)
     filtered_df, _ = apply_dataset_column_selection(df, str(dataset["target_column"]), list(dataset.get("excluded_columns") or []))
-    results = train_models(filtered_df, str(dataset["target_column"]), dataset_id=dataset_id_str)
+    results = select_and_train_models(
+        filtered_df,
+        str(dataset["target_column"]),
+        dataset_id=dataset_id_str,
+        shortlist_count=10,
+        final_k=5,
+        user_instruction=payload.user_instruction,
+    )
     replace_experiments(db, dataset_id_str, results)
 
     artifacts = replace_model_artifacts(
