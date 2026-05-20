@@ -5,3 +5,6 @@ backend/uploads/
 backend/.env
 *.pyc
 **/model_artifacts/
+.DS_Store
+backend/.DS_Store
+backend/instruction_files/.DS_Store

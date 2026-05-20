@@ -1,0 +1,1141 @@
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.62.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.60.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.62.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.62.
+For an unsupervised dataset, OPTICS produced valid structure and evaluated clustering metrics with features user_id.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.51.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.62.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.26.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.65.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.65.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.65.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.55.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.47.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.53.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.65.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.02.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.94.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 1.00.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.94.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.94.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.94.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 1.00.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 1.00.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.94.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.51.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.26.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.28.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.26.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.25.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.28.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.25.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.66.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features daily_screen_time_hours.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.62.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.66.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.66.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.48.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.61.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.66.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.10.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.59.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.60.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.58.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.04.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.48.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.60.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.14.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.63.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features sleep_duration_hours.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.59.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.63.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.34.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.56.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.63.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.60.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features sleep_quality_score.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.60.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.40.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.59.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.31.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.69.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features stress_level.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.36.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.68.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.61.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.69.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.11.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.70.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.67.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.70.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.67.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.75.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.70.
+For an unsupervised dataset, IsolationForest produced valid structure and evaluated clustering metrics with features caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.64.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features physical_activity_minutes.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.64.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.64.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.20.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.52.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.64.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.15.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features physical_activity_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features notifications_received_per_day.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.42.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.54.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features notifications_received_per_day.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.68.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features mental_fatigue_score.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.68.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.59.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.43.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.67.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.12.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features mental_fatigue_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.37.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id, age.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.36.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.34.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.13.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.35.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.08.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.42.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.24.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.39.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.17.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.42.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.42.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.32.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.39.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.23.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.10.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.24.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.32.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.39.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.38.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.38.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.33.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.11.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.38.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.09.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.35.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.10.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.32.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.35.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.27.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.05.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.38.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.34.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.35.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.02.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.13.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.31.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.35.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.20.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.04.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.36.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id, stress_level.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.40.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, stress_level.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.15.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.25.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.40.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.01.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id, physical_activity_minutes.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.02.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.34.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.34.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.07.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, physical_activity_minutes.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.36.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features user_id, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, notifications_received_per_day.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.40.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.27.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.31.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.01.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, mental_fatigue_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.44.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.40.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.44.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.39.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.41.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.28.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.44.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.06.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.34.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.33.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.31.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.30.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.46.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.01.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.36.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.33.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.26.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.33.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.29.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.00.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.16.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.25.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.29.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.31.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.14.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_quality_score.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age, stress_level.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.19.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, stress_level.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.12.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.36.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score -0.03.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age, physical_activity_minutes.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.03.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.05.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, physical_activity_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age, notifications_received_per_day.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.32.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.06.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, notifications_received_per_day.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features age, mental_fatigue_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.17.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.98.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.98.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.33.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.45.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.41.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.45.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.23.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.41.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.40.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.39.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.18.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.43.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.28.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.26.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.45.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.41.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.21.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.36.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.32.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.24.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.47.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.45.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.47.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.41.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.47.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, stress_level.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.20.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.46.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.64.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.46.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.04.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.43.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.30.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, physical_activity_minutes.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.23.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.38.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, notifications_received_per_day.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.22.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.47.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.48.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.11.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.31.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.51.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.31.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.09.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.45.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.30.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.36.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.26.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.30.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.16.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.54.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.12.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, stress_level.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.59.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.03.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, physical_activity_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.29.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.28.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.55.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.33.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.38.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, mental_fatigue_score.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.20.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.41.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.09.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.56.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.54.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.13.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.19.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.06.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.61.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.61.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.06.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, stress_level.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.14.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.07.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.04.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.28.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.34.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.32.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.43.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.09.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.20.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.03.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.21.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.34.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.23.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.44.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.49.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.08.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.61.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.61.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.17.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.32.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.17.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.12.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.05.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.51.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.53.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.09.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.52.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.33.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, caffeine_intake_cups.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features stress_level, physical_activity_minutes.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.35.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, physical_activity_minutes.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, notifications_received_per_day.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features stress_level, mental_fatigue_score.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.30.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.13.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.44.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score -0.05.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.29.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score -0.04.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.31.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.08.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, DBSCAN produced valid structure and evaluated clustering metrics with features notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.29.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.25.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.16.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.28.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, gender.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, gender.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.24.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.10.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.22.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.06.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.21.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, occupation.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.23.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, occupation.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.28.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.18.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.23.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.16.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.27.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.23.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.20.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.20.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.22.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.24.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.24.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.24.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, sleep_duration_hours.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.25.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, sleep_duration_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.25.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.25.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.21.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, sleep_quality_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.05.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.13.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, stress_level.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.26.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, stress_level.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.05.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score -0.02.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.14.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.24.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.07.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, physical_activity_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.13.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.19.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.18.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.00.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, age, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, age, mental_fatigue_score.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.08.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.30.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, occupation.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, occupation.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, daily_screen_time_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.27.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.26.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, sleep_quality_score.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.18.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, stress_level.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.27.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.29.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.14.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.19.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, gender, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, gender, mental_fatigue_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.14.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, daily_screen_time_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.07.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.12.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.16.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.21.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, sleep_quality_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.11.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, stress_level.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.11.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.22.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.15.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.05.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.15.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, physical_activity_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.19.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, notifications_received_per_day.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.19.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, occupation, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, occupation, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.12.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.27.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.19.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.23.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.09.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.01.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.26.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.08.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.44.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.39.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score -0.01.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.18.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.01.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.43.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.15.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, daily_screen_time_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.21.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.19.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.23.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.22.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.04.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.07.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.03.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.42.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.27.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.43.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, stress_level.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.08.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, stress_level, mental_fatigue_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.10.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score 0.00.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.02.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.22.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.22.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features user_id, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features user_id, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, occupation.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, occupation.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, daily_screen_time_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, daily_screen_time_hours.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.10.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.07.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, gender, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, gender, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, daily_screen_time_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, daily_screen_time_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score -0.00.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.18.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, sleep_duration_hours.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.20.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, physical_activity_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.17.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, occupation, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, occupation, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.03.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.00.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.43.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, daily_screen_time_hours, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.17.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.02.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.40.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, stress_level, notifications_received_per_day.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.46.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset with normalized features, IsolationForest achieved silhouette score -0.00.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features age, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features age, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, daily_screen_time_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, daily_screen_time_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, sleep_duration_hours.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.22.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, sleep_quality_score.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.21.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.16.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.29.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, occupation, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, occupation, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.18.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.45.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.50.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.50.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.49.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.50.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.50.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.49.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.50.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, daily_screen_time_hours, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.15.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, stress_level.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.22.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.48.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.46.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, stress_level.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.48.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.17.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.47.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.37.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.33.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, stress_level, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score 0.11.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.30.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, stress_level, notifications_received_per_day.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.52.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.52.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.51.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.52.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features gender, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features gender, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, phone_usage_before_sleep_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, sleep_duration_hours.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.38.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.35.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, sleep_quality_score.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.42.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, daily_screen_time_hours, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.00.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset with normalized features, DBSCAN achieved silhouette score -0.06.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.16.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.41.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.27.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, stress_level.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.21.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.18.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score 0.21.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.17.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features occupation, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features occupation, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, sleep_duration_hours.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, phone_usage_before_sleep_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.59.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.25.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset with normalized features, KMeans achieved silhouette score 0.58.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, GaussianMixture achieved silhouette score 0.42.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.57.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.58.
+For an unsupervised dataset with normalized features, SpectralClustering achieved silhouette score 0.58.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset with normalized features, Birch achieved silhouette score 0.44.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, stress_level, notifications_received_per_day.
+For an unsupervised dataset with normalized features, AgglomerativeClustering achieved silhouette score 0.55.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features daily_screen_time_hours, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, sleep_quality_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_duration_hours, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, notifications_received_per_day.
+For an unsupervised dataset with normalized features, MeanShift achieved silhouette score 0.46.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features phone_usage_before_sleep_minutes, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, stress_level.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, stress_level.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, sleep_quality_score, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_duration_hours, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_duration_hours, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level, caffeine_intake_cups.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, stress_level, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset with normalized features, OPTICS achieved silhouette score -0.28.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features sleep_quality_score, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features sleep_quality_score, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features stress_level, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, caffeine_intake_cups, physical_activity_minutes.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features stress_level, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, caffeine_intake_cups, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, caffeine_intake_cups, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features stress_level, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features stress_level, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, physical_activity_minutes, notifications_received_per_day.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, physical_activity_minutes, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features caffeine_intake_cups, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, MeanShift produced valid structure and evaluated clustering metrics with features physical_activity_minutes, notifications_received_per_day, mental_fatigue_score.
+For an unsupervised dataset, PCA produced valid structure and evaluated clustering metrics with features physical_activity_minutes, notifications_received_per_day, mental_fatigue_score.

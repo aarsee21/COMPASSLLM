@@ -1,0 +1,347 @@
+2026-05-18 00:01:38,175 [ERROR] Failed to ensure database schema
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1922156646.py", line 44, in ensure_schema
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        CREATE TABLE IF NOT EXISTS public.experiment_runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<18 lines>...
+        );
+        ^^
+    ''')
+    ^^^^
+psycopg2.errors.UndefinedColumn: column "dataset_id" referenced in foreign key constraint does not exist
+
+2026-05-18 00:02:28,641 [ERROR] Failed to ensure database schema
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/2875353804.py", line 48, in ensure_schema
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        CREATE TABLE IF NOT EXISTS public.experiment_runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<18 lines>...
+        );
+        ^^
+    ''')
+    ^^^^
+psycopg2.errors.UndefinedColumn: column "dataset_id" referenced in foreign key constraint does not exist
+
+2026-05-18 00:07:37,852 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:12:04,784 [INFO] ================================================================================
+2026-05-18 00:12:04,787 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:12:04,787 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:12:04,788 [INFO] Mode: unsupervised
+2026-05-18 00:12:04,789 [INFO] Target Column: stress_level
+2026-05-18 00:12:04,791 [INFO] ================================================================================
+2026-05-18 00:12:05,005 [ERROR] Failed to insert dataset record
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 22, in upsert_dataset_record
+    cursor.execute('INSERT INTO compassllm_dataset_profiles (dataset_id, dataset_name, dataset_hash, dataset_metadata) VALUES (%s, %s, %s, %s);', (str(dataset_id), dataset_name, dataset_hash, json.dumps(metadata)))
+                                                                                                                                                                                                ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not tuple
+2026-05-18 00:12:05,008 [ERROR] Pipeline execution failed: keys must be str, int, float, bool or None, not tuple
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/540578491.py", line 19, in <module>
+    summary = run_pipeline(DATASET_PATH, MODE, TARGET_COLUMN)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/2669460395.py", line 14, in run_pipeline
+    dataset_id = upsert_dataset_record(dataset_name, df, dataset_metadata)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 22, in upsert_dataset_record
+    cursor.execute('INSERT INTO compassllm_dataset_profiles (dataset_id, dataset_name, dataset_hash, dataset_metadata) VALUES (%s, %s, %s, %s);', (str(dataset_id), dataset_name, dataset_hash, json.dumps(metadata)))
+                                                                                                                                                                                                ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not tuple
+2026-05-18 00:12:52,642 [INFO] ================================================================================
+2026-05-18 00:12:52,643 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:12:52,643 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:12:52,644 [INFO] Mode: unsupervised
+2026-05-18 00:12:52,644 [INFO] Target Column: stress_level
+2026-05-18 00:12:52,645 [INFO] ================================================================================
+2026-05-18 00:12:52,743 [ERROR] Failed to insert dataset record
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 22, in upsert_dataset_record
+    cursor.execute('INSERT INTO compassllm_dataset_profiles (dataset_id, dataset_name, dataset_hash, dataset_metadata) VALUES (%s, %s, %s, %s);', (str(dataset_id), dataset_name, dataset_hash, json.dumps(metadata)))
+                                                                                                                                                                                                ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not tuple
+2026-05-18 00:12:52,744 [ERROR] Pipeline execution failed: keys must be str, int, float, bool or None, not tuple
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/540578491.py", line 19, in <module>
+    summary = run_pipeline(DATASET_PATH, MODE, TARGET_COLUMN)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/2669460395.py", line 14, in run_pipeline
+    dataset_id = upsert_dataset_record(dataset_name, df, dataset_metadata)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 22, in upsert_dataset_record
+    cursor.execute('INSERT INTO compassllm_dataset_profiles (dataset_id, dataset_name, dataset_hash, dataset_metadata) VALUES (%s, %s, %s, %s);', (str(dataset_id), dataset_name, dataset_hash, json.dumps(metadata)))
+                                                                                                                                                                                                ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not tuple
+2026-05-18 00:13:58,734 [INFO] ================================================================================
+2026-05-18 00:13:58,736 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:13:58,737 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:13:58,738 [INFO] Mode: unsupervised
+2026-05-18 00:13:58,739 [INFO] Target Column: stress_level
+2026-05-18 00:13:58,739 [INFO] ================================================================================
+2026-05-18 00:14:02,375 [ERROR] Failed to insert generated knowledge
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 82, in insert_generated_knowledge
+    ''', (str(run_id), str(dataset_id), instruction, json.dumps(metadata)))
+                                                     ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type UUID is not JSON serializable
+2026-05-18 00:14:02,383 [ERROR] Pipeline execution failed: Object of type UUID is not JSON serializable
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/540578491.py", line 19, in <module>
+    summary = run_pipeline(DATASET_PATH, MODE, TARGET_COLUMN)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/2669460395.py", line 124, in run_pipeline
+    insert_generated_knowledge(dataset_id, run_id, instruction, {
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'dataset_metadata': dataset_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'experiment_metadata': experiment_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    })
+    ^^
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 82, in insert_generated_knowledge
+    ''', (str(run_id), str(dataset_id), instruction, json.dumps(metadata)))
+                                                     ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type UUID is not JSON serializable
+2026-05-18 00:15:20,619 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:15:25,392 [INFO] ================================================================================
+2026-05-18 00:15:25,419 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:15:25,446 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:15:25,475 [INFO] Mode: unsupervised
+2026-05-18 00:15:25,507 [INFO] Target Column: stress_level
+2026-05-18 00:15:25,514 [INFO] ================================================================================
+2026-05-18 00:15:30,361 [ERROR] Failed to insert generated knowledge
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 82, in insert_generated_knowledge
+    ''', (str(run_id), str(dataset_id), instruction, json.dumps(metadata)))
+                                                     ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type UUID is not JSON serializable
+2026-05-18 00:15:30,366 [ERROR] Pipeline execution failed: Object of type UUID is not JSON serializable
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/540578491.py", line 19, in <module>
+    summary = run_pipeline(DATASET_PATH, MODE, TARGET_COLUMN)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/2669460395.py", line 124, in run_pipeline
+    insert_generated_knowledge(dataset_id, run_id, instruction, {
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'dataset_metadata': dataset_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'experiment_metadata': experiment_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    })
+    ^^
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/1032013961.py", line 82, in insert_generated_knowledge
+    ''', (str(run_id), str(dataset_id), instruction, json.dumps(metadata)))
+                                                     ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type UUID is not JSON serializable
+2026-05-18 00:22:07,525 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:22:12,842 [INFO] ================================================================================
+2026-05-18 00:22:12,844 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:22:12,846 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:22:12,851 [INFO] Mode: unsupervised
+2026-05-18 00:22:12,857 [INFO] Target Column: stress_level
+2026-05-18 00:22:12,859 [INFO] ================================================================================
+2026-05-18 00:22:43,430 [ERROR] Failed to insert experiment run
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/631363425.py", line 52, in insert_experiment_run
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO compassllm_experiment_runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<19 lines>...
+        _safe_json_dumps(run_metadata.get('extra_metadata', {})),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type json
+LINE 4: ..., 'unsupervised', NULL, 'OPTICS', 'unsupervised', '{"algorit...
+                                                             ^
+DETAIL:  Token "Infinity" is invalid.
+CONTEXT:  JSON data, line 1: ..."eps": null, "leaf_size": 30, "max_eps": Infinity...
+
+2026-05-18 00:22:43,432 [ERROR] Pipeline execution failed: invalid input syntax for type json
+LINE 4: ..., 'unsupervised', NULL, 'OPTICS', 'unsupervised', '{"algorit...
+                                                             ^
+DETAIL:  Token "Infinity" is invalid.
+CONTEXT:  JSON data, line 1: ..."eps": null, "leaf_size": 30, "max_eps": Infinity...
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/540578491.py", line 19, in <module>
+    summary = run_pipeline(DATASET_PATH, MODE, TARGET_COLUMN)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/2669460395.py", line 123, in run_pipeline
+    insert_experiment_run(dataset_id, mode, task_type, None, experiment_metadata)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_96771/631363425.py", line 52, in insert_experiment_run
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO compassllm_experiment_runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<19 lines>...
+        _safe_json_dumps(run_metadata.get('extra_metadata', {})),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type json
+LINE 4: ..., 'unsupervised', NULL, 'OPTICS', 'unsupervised', '{"algorit...
+                                                             ^
+DETAIL:  Token "Infinity" is invalid.
+CONTEXT:  JSON data, line 1: ..."eps": null, "leaf_size": 30, "max_eps": Infinity...
+
+2026-05-18 00:26:13,990 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:26:14,195 [INFO] ================================================================================
+2026-05-18 00:26:14,196 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:26:14,197 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:26:14,198 [INFO] Mode: unsupervised
+2026-05-18 00:26:14,198 [INFO] Target Column: stress_level
+2026-05-18 00:26:14,199 [INFO] ================================================================================
+2026-05-18 00:26:39,804 [ERROR] Failed to insert experiment run
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_1047/631363425.py", line 52, in insert_experiment_run
+    cursor.execute('''
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type json
+LINE 4: ..., 'unsupervised', NULL, 'OPTICS', 'unsupervised', '{"algorit...
+                                                             ^
+DETAIL:  Token "Infinity" is invalid.
+CONTEXT:  JSON data, line 1: ..."eps": null, "leaf_size": 30, "max_eps": Infinity...
+
+2026-05-18 00:26:39,807 [ERROR] Pipeline execution failed: invalid input syntax for type json
+LINE 4: ..., 'unsupervised', NULL, 'OPTICS', 'unsupervised', '{"algorit...
+                                                             ^
+DETAIL:  Token "Infinity" is invalid.
+CONTEXT:  JSON data, line 1: ..."eps": null, "leaf_size": 30, "max_eps": Infinity...
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_1047/540578491.py", line 19, in <module>
+    summary = run_pipeline(DATASET_PATH, MODE, TARGET_COLUMN)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_1047/2669460395.py", line 123, in run_pipeline
+    insert_experiment_run(dataset_id, mode, task_type, None, experiment_metadata)
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_1047/631363425.py", line 52, in insert_experiment_run
+    cursor.execute('''
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type json
+LINE 4: ..., 'unsupervised', NULL, 'OPTICS', 'unsupervised', '{"algorit...
+                                                             ^
+DETAIL:  Token "Infinity" is invalid.
+CONTEXT:  JSON data, line 1: ..."eps": null, "leaf_size": 30, "max_eps": Infinity...
+
+2026-05-18 00:31:33,459 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:31:33,638 [INFO] ================================================================================
+2026-05-18 00:31:33,639 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:31:33,640 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:31:33,640 [INFO] Mode: unsupervised
+2026-05-18 00:31:33,641 [INFO] Target Column: stress_level
+2026-05-18 00:31:33,641 [INFO] ================================================================================
+2026-05-18 00:33:10,625 [ERROR] Unsupervised model failed: PCA
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_1047/2292517011.py", line 66, in run_unsupervised_experiment
+    model.fit(X)
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/decomposition/_pca.py", line 440, in fit
+    self._fit(X)
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/decomposition/_pca.py", line 540, in _fit
+    return self._fit_full(X, n_components, xp, is_array_api_compliant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/decomposition/_pca.py", line 554, in _fit_full
+    raise ValueError(
+ValueError: n_components=2 must be between 0 and min(n_samples, n_features)=1 with svd_solver='covariance_eigh'
+2026-05-18 00:35:09,601 [ERROR] Unsupervised model failed: PCA
+Traceback (most recent call last):
+  File "/var/folders/9_/xsy51vhx14z013rcw2jjgtlm0000gn/T/ipykernel_1047/2292517011.py", line 66, in run_unsupervised_experiment
+    model.fit(X)
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/decomposition/_pca.py", line 440, in fit
+    self._fit(X)
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/decomposition/_pca.py", line 540, in _fit
+    return self._fit_full(X, n_components, xp, is_array_api_compliant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/likhithkanigolla/.pyenv/versions/3.11.6/lib/python3.11/site-packages/sklearn/decomposition/_pca.py", line 554, in _fit_full
+    raise ValueError(
+ValueError: n_components=2 must be between 0 and min(n_samples, n_features)=1 with svd_solver='covariance_eigh'
+2026-05-18 00:41:08,791 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:41:09,028 [INFO] ================================================================================
+2026-05-18 00:41:09,031 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:41:09,032 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:41:09,033 [INFO] Mode: unsupervised
+2026-05-18 00:41:09,033 [INFO] Target Column: stress_level
+2026-05-18 00:41:09,034 [INFO] ================================================================================
+2026-05-18 00:43:32,026 [INFO] COMPASSLLM schema initialized successfully
+2026-05-18 00:43:32,151 [INFO] ================================================================================
+2026-05-18 00:43:32,151 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:43:32,152 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/2b90fd8d-df78-4127-bc43-85c4fec0484d.csv
+2026-05-18 00:43:32,153 [INFO] Mode: unsupervised
+2026-05-18 00:43:32,153 [INFO] Target Column: stress_level
+2026-05-18 00:43:32,153 [INFO] ================================================================================
+2026-05-18 00:46:01,491 [INFO] ================================================================================
+2026-05-18 00:46:01,493 [INFO] Starting COMPASSLLM Metadata Collection Pipeline
+2026-05-18 00:46:01,494 [INFO] Dataset: /Users/likhithkanigolla/IIITH/code-files/MISC/Aarsee/backend/uploads/fc32ac54-6dba-4a12-ae0b-c4beaee4f0bf-2.csv
+2026-05-18 00:46:01,495 [INFO] Mode: unsupervised
+2026-05-18 00:46:01,495 [INFO] Target Column: stress_level
+2026-05-18 00:46:01,496 [INFO] ================================================================================
+2026-05-18 00:50:53,993 [INFO] Pipeline completed: 3770 experiments for dataset fc32ac54-6dba-4a12-ae0b-c4beaee4f0bf-2
+2026-05-18 00:50:53,995 [INFO] Pipeline completed successfully with 3770 experiments
