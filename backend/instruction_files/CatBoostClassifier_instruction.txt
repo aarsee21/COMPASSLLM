@@ -1,0 +1,105 @@
+MODEL: CatBoostClassifier
+TOTAL_RUNS: 6404
+DATASET_TYPES_OBSERVED:
+•  biomedical (breast cancer diagnosis, heart disease)
+•  tabular classification (income, glass type, wine quality)
+•  categorical-dominant datasets (mushroom classification, census income)
+•  botanical/species classification (iris)
+•  mixed numerical and categorical datasets
+
+FEATURE_SUBSET_SIZES:
+•  1-feature subsets: 108 runs
+•  2-feature subsets: 1268 runs
+•  3-feature subsets: 5028 runs
+
+ACCURACY_DISTRIBUTION:
+•  min_accuracy: 0.21
+•  max_accuracy: 1.00
+•  mean_accuracy: 0.87
+•  median_accuracy: 0.90
+•  std_accuracy: 0.10
+
+PRECISION_RECALL_F1:
+•  mean_precision: 0.862
+•  mean_recall: 0.866
+•  mean_f1_score: 0.860
+
+BEST_PERFORMING_CONDITIONS:
+•  3-feature subsets (mean accuracy: 0.888)
+•  purely numerical feature spaces
+•  balanced class distributions
+•  encoding enabled for categorical features
+•  low dimensionality with high-signal features (e.g., perimeter_worst, area_worst, odor)
+
+LOWEST_PERFORMING_CONDITIONS:
+•  single-feature subsets (mean accuracy: 0.694)
+•  weak or uninformative individual features (e.g., Fe, Si, Ca, Ash)
+•  imbalanced class distributions
+•  purely categorical feature spaces without strong discriminators
+•  mixed feature spaces with low-signal categorical attributes
+
+TOP_FEATURE_PATTERNS:
+•  PetalLengthCm + SepalLengthCm (accuracy: 1.00)
+•  Color.int + Hue + Proline (accuracy: 1.00)
+•  Hue + Mg + Proline (accuracy: 1.00)
+•  Alcohol + Hue + Proline (accuracy: 1.00)
+•  fractal_dimension_worst + perimeter_worst + smoothness_worst (accuracy: 1.00)
+•  odor + spore-print-color (accuracy: 0.993)
+•  area_worst + compactness_mean + perimeter_mean (accuracy: 0.991)
+
+TOP_INDIVIDUAL_FEATURES_BY_AVERAGE_ACCURACY:
+•  PetalLengthCm: 0.992
+•  odor: 0.986
+•  Id: 0.973
+•  perimeter_worst: 0.958
+•  area_worst: 0.957
+•  radius_worst: 0.950
+•  area_mean: 0.939
+•  area_se: 0.938
+•  radius_mean: 0.937
+•  perimeter_mean: 0.933
+
+COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
+•  feature_count >= 2 (accuracy improves substantially from 1 to 3 features)
+•  low missing value percentage
+•  balanced class distribution
+•  numerical dominance with high-signal features
+•  meaningful categorical features with strong class separability (e.g., odor, spore-print-color)
+
+OBSERVED_MODEL_BEHAVIOR:
+•  strong performance gains when moving from 1-feature to 3-feature subsets (mean acc: 0.694 → 0.888)
+•  performs well on both numerical and high-signal categorical features
+•  robust on biomedical datasets with structured numerical features
+•  weaker on single low-information features (Fe, Si, Ca) with accuracy as low as 0.21
+•  stable and high-performing on balanced datasets (mean acc: 0.871 vs 0.792 for imbalanced)
+•  achieves perfect accuracy (1.00) on well-separable multi-feature combinations
+
+PREPROCESSING_IMPACT:
+•  scaling enabled across all 6404 runs (universal requirement)
+•  encoding enabled improved average accuracy by ~7.6% (0.871 vs 0.795 without encoding)
+•  feature set size increase from 1 to 3 features improved mean accuracy by ~19.4%
+•  noisy or uninformative feature inclusion led to accuracy as low as 0.21
+
+DATASET_BALANCE_IMPACT:
+•  relatively balanced datasets: 6009 runs, mean accuracy 0.871
+•  imbalanced datasets: 395 runs, mean accuracy 0.792
+•  class imbalance reduces CatBoostClassifier performance by approximately 7.9%
+
+FEATURE_TYPE_IMPACT:
+•  numerical-only feature sets: mean accuracy 0.876 (5790 runs)
+•  categorical-only feature sets: mean accuracy 0.770 (406 runs)
+•  mixed feature sets: mean accuracy 0.780 (208 runs)
+
+HIGH_ACCURACY_DATASET_DISTRIBUTION (accuracy >= 0.95):
+•  1090 runs achieved >= 0.95 accuracy
+•  diagnosis (breast cancer): 1004 of those runs
+•  Type of glass: 46 runs
+•  class (mushroom): 23 runs
+•  Wine: 11 runs
+•  Species (iris): 6 runs
+
+MODEL_SELECTION_REASONING:
+CatBoostClassifier should be prioritized for classification tasks with 2–3 feature subsets, especially on balanced datasets with numerical or high-signal categorical features. It excels in biomedical and structured tabular domains where features carry strong discriminative power. Encoding support makes it well-suited for datasets with mixed feature types.
+
+MODEL_AVOIDANCE_REASONING:
+Avoid CatBoostClassifier for single-feature subsets or datasets dominated by weak, noisy, or low-information features (e.g., elemental composition fields like Fe, Si, Ca). Performance also degrades noticeably on imbalanced datasets and purely categorical datasets without strong class-separating features.

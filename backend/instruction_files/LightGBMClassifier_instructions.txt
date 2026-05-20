@@ -1,0 +1,82 @@
+MODEL: LightGBMClassifier
+TOTAL_RUNS: 6404
+
+DATASET_TYPES_OBSERVED:
+  - biomedical (breast cancer, cardiovascular / heart disease)
+  - botanical / iris classification
+  - categorical-dominant datasets (e.g. mushroom)
+  - numerical tabular datasets (e.g. wine, glass identification)
+  - mixed numerical and categorical tabular datasets (e.g. census / income)
+  - imbalanced classification datasets
+
+FEATURE_SUBSET_SIZES:
+  - 1-feature subsets: 108 runs
+  - 2-feature subsets: 1268 runs
+  - 3-feature subsets: 5028 runs
+
+ACCURACY_DISTRIBUTION:
+  - min_accuracy: 0.26
+  - max_accuracy: 1.00
+  - mean_accuracy: 0.86
+  - median_accuracy: 0.89
+  - std_accuracy: 0.10
+
+BEST_PERFORMING_CONDITIONS:
+  - biomedical datasets with discriminative morphological features (e.g. perimeter_worst, area_worst)
+  - relatively balanced class distributions
+  - datasets with low missing value percentage
+  - numerical-dominant feature spaces with moderate-to-high feature variance
+  - compact low-dimensional feature subsets drawn from informative columns
+
+LOWEST_PERFORMING_CONDITIONS:
+  - imbalanced classification datasets (min accuracy as low as 0.26 observed)
+  - highly mixed categorical and numerical features with many category levels
+  - feature subsets containing weakly discriminative or noisy attributes
+  - single-feature subsets on complex datasets
+
+TOP_FEATURE_PATTERNS:
+  - perimeter_worst + area_worst (breast cancer biomedical, highest-frequency in top accuracy runs)
+  - fractal_dimension_mean + area_se + perimeter_worst (breast cancer, accuracy up to 0.974)
+  - cp + ca + oldpeak (heart disease cardiovascular, accuracy up to 1.000)
+  - Id + PetalLengthCm + SepalLengthCm (iris botanical, accuracy up to 1.000)
+  - Ba + Ca + Id (glass identification numerical, accuracy up to 1.000)
+
+COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
+  - feature_count <= 5 in subset (3-feature subsets dominated high-accuracy runs)
+  - low missing value percentage across all observed datasets
+  - numerical dominance or strong individual feature discriminability
+  - moderate-to-high inter-class variance in selected features
+  - relatively balanced class distributions (imbalanced datasets showed higher variance)
+
+OBSERVED_MODEL_BEHAVIOR:
+  - consistently strong on biomedical datasets; breast cancer dataset (08a89f71) averaged 0.877 accuracy across 4990 runs
+  - achieves perfect accuracy (1.000) on small, separable datasets such as iris and targeted glass/wine subsets
+  - performance degrades on imbalanced datasets; glass identification (fc63e8d4) showed min accuracy of 0.256
+  - robust across mixed feature types due to native categorical handling in LightGBM
+  - 3-feature subsets significantly outperformed 1- and 2-feature subsets in mean accuracy
+  - stable on datasets with 5-14 numerical features and low cardinality categorical columns
+
+PREPROCESSING_IMPACT:
+  - scaling_note: all 6404 observed runs used scaling_enabled=true; no unscaled baseline runs were present in this dataset, so a direct percentage improvement from scaling cannot be computed — note that LightGBM is tree-based and theoretically scale-invariant, so scaling impact is expected to be negligible
+  - feature reduction to 3-feature subsets improved stability and interpretability
+  - noisy or redundant feature inclusion in subsets reduced accuracy, particularly on smaller datasets
+
+HYPERPARAMETER_PATTERNS:
+  - all runs used a fixed configuration: n_estimators=100, learning_rate=0.1, num_leaves=31, max_depth=-1 (unlimited), boosting_type=gbdt
+  - no hyperparameter variation was observed across runs; patterns reflect feature selection impact rather than tuning effects
+  - unlimited max_depth may lead to overfitting on very small datasets; depth constraints could improve generalisation
+  - default num_leaves=31 is suitable for moderate-complexity datasets but may underfit on high-cardinality categorical datasets
+
+MODEL_SELECTION_REASONING:
+  LightGBMClassifier should be prioritised for tabular classification tasks with
+  mixed or numerical feature spaces, especially when datasets are relatively balanced
+  and contain a small number of highly discriminative features. It is particularly
+  effective on biomedical and structured numerical datasets where gradient boosting
+  can exploit feature interactions without requiring extensive preprocessing.
+
+MODEL_AVOIDANCE_REASONING:
+  Avoid LightGBMClassifier as the sole model for severely imbalanced datasets without
+  applying class weighting or resampling strategies, as accuracy variance is high in
+  such conditions. Also reconsider when inference latency is critical in production
+  environments, as ensemble tree models carry higher prediction overhead than linear
+  or distance-based models.

@@ -1,0 +1,76 @@
+MODEL: GaussianNB
+TOTAL_RUNS: 6405
+DATASET_TYPES_OBSERVED:
+•  biomedical classification (breast cancer: 32 numerical + 1 categorical, balanced)
+•  purely categorical tabular classification (mushroom: 23 categorical features, balanced)
+•  mixed categorical-numerical classification (adult income: imbalanced; bank marketing: imbalanced)
+•  purely numerical tabular classification (wine: 14 numerical, balanced; heart disease: 14 numerical)
+•  imbalanced numerical classification (glass: 11 numerical features)
+•  low-dimensional multiclass numerical datasets (iris: 5 numerical + 1 categorical, balanced)
+
+FEATURE_SUBSET_SIZES:
+•  1-feature subsets: 110 runs
+•  2-feature subsets: 1268 runs
+•  3-feature subsets: 5027 runs
+
+ACCURACY_DISTRIBUTION:
+•  min_accuracy: 0.14
+•  max_accuracy: 1.00
+•  mean_accuracy: 0.84
+•  median_accuracy: 0.89
+•  std_accuracy: 0.14
+
+BEST_PERFORMING_CONDITIONS:
+•  purely numerical feature spaces (mean accuracy 0.85 vs 0.67 for categorical-heavy datasets)
+•  balanced class distributions
+•  3-feature subsets (mean accuracy 0.86 vs 0.74 for 2-feature, 0.67 for 1-feature)
+•  biomedical datasets with well-separated Gaussian feature distributions
+•  compact, low-dimensional datasets with continuous features
+
+LOWEST_PERFORMING_CONDITIONS:
+•  purely categorical or high-proportion categorical feature spaces (violates Gaussian assumption)
+•  highly imbalanced class distributions
+•  single-feature subsets (mean accuracy 0.67)
+•  datasets with skewed or non-Gaussian numerical distributions
+•  mixed categorical-numerical datasets when categorical features dominate
+
+TOP_FEATURE_PATTERNS:
+•  perimeter_worst + radius_worst + area_worst (breast cancer — biomedical, acc ≈ 0.98)
+•  Alcohol + Ash + Phenols / Alcohol + Phenols + Proline (wine — numerical, acc = 1.00)
+•  Id + PetalLengthCm + SepalLengthCm / Hue + Proline (iris/wine — compact numerical, acc = 1.00)
+•  perimeter_mean + concave points_mean + area_se (breast cancer, acc ≈ 0.93)
+•  odor + stalk-color-below-ring / gill-color + odor (mushroom — categorical, acc ≈ 0.99)
+
+COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
+•  numerical dominance > 80% of features
+•  balanced or near-balanced class distribution
+•  low missing value percentage (all 9 observed datasets had low missing values)
+•  feature_count <= 3 per subset (3-feature subsets yielded strongest results)
+•  features with approximately Gaussian marginal distributions
+•  well-separated class clusters in feature space (biomedical and wine datasets)
+
+OBSERVED_MODEL_BEHAVIOR:
+•  performance improves substantially as feature count increases from 1 to 3 (mean: 0.67 → 0.74 → 0.86)
+•  strong performance on biomedical numerical data (breast cancer dataset mean acc: 0.88)
+•  weak on purely categorical datasets due to violated Gaussian assumption (mushroom mean acc: 0.67)
+•  poor on severely imbalanced datasets (glass: 0.52, adult income: 0.57)
+•  high variance across feature combinations on numerically noisy datasets (glass std very high)
+•  near-perfect performance on well-structured, separable numerical datasets (iris: 0.97, wine: 0.83)
+•  single hyperparameter (var_smoothing = 1e-09) held constant across all 6405 runs — no tuning observed
+
+PREPROCESSING_IMPACT:
+•  scaling was enabled uniformly across all 6405 runs (no unscaled baseline available for comparison)
+•  increasing feature subset size from 1 to 3 improved mean accuracy by approximately 19 percentage points
+•  categorical feature inclusion consistently reduced performance relative to purely numerical runs
+•  runs with any categorical features in the selected subset averaged 0.67 accuracy vs 0.85 for all-numeric subsets
+
+HYPERPARAMETER_PATTERNS:
+•  var_smoothing fixed at 1e-09 for all runs — no hyperparameter variation was explored
+•  priors set to null (uniform) across all runs — class priors derived from training data
+•  no hyperparameter sweep was performed; GaussianNB was treated as a near-zero-config baseline model
+
+MODEL_SELECTION_REASONING:
+GaussianNB should be prioritized for low-dimensional, purely numerical classification datasets where features follow approximately Gaussian distributions and classes are reasonably balanced. It is particularly effective for biomedical classification tasks (e.g., breast cancer diagnosis) and well-structured tabular datasets (e.g., wine, iris) where feature distributions per class are compact and separable. It serves well as a fast, interpretable baseline with near-zero configuration overhead.
+
+MODEL_AVOIDANCE_REASONING:
+Avoid GaussianNB for datasets dominated by categorical features, as the Gaussian likelihood assumption is fundamentally violated. Also avoid for severely imbalanced classification problems where the uniform prior assumption introduces systematic bias. GaussianNB underperforms on datasets with non-Gaussian numerical distributions (e.g., heavy-tailed or multimodal), and should not be used as a final model when high accuracy is required on mixed categorical-numerical data without appropriate encoding strategies.
