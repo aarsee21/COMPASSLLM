@@ -88,6 +88,8 @@ def _evaluate_pipeline_with_cv(pipeline: Pipeline, X: pd.DataFrame, y_encoded: n
         return None
 
     cv = StratifiedKFold(n_splits=effective_splits, shuffle=True, random_state=42)
+    # Keys here become the cross_validate result keys (e.g. "test_accuracy").
+    # Use the metric nickname as key; pass the full scorer string as value.
     scoring = {
         "accuracy": "accuracy",
         "precision": "precision_weighted",
@@ -101,12 +103,13 @@ def _evaluate_pipeline_with_cv(pipeline: Pipeline, X: pd.DataFrame, y_encoded: n
         cv=cv,
         scoring=scoring,
         n_jobs=1,
-        error_score="raise",
+        error_score=0.0,  # return 0 on fold errors instead of raising
     )
 
+    # cross_validate stores results as "test_<key>" using the dict key, not the scorer string.
     return {
-        key: float(np.mean(scores[f"test_{value}"]))
-        for key, value in scoring.items()
+        key: float(np.mean(scores[f"test_{key}"]))
+        for key in scoring
     }
 
 
