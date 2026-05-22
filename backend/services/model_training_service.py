@@ -1,3 +1,4 @@
+import logging
 import time
 import uuid
 from pathlib import Path
@@ -81,6 +82,9 @@ def _prepare_target_for_training(y_raw: pd.Series) -> pd.Series:
     return y.astype(str).fillna("missing_target")
 
 
+logger = logging.getLogger(__name__)
+
+
 def _evaluate_pipeline_with_cv(pipeline: Pipeline, X: pd.DataFrame, y_encoded: np.ndarray, n_splits: int = 3) -> dict[str, float] | None:
     class_counts = np.bincount(y_encoded)
     effective_splits = min(n_splits, int(class_counts[class_counts > 0].min())) if class_counts.size and class_counts.max() > 0 else 0
@@ -88,25 +92,27 @@ def _evaluate_pipeline_with_cv(pipeline: Pipeline, X: pd.DataFrame, y_encoded: n
         return None
 
     cv = StratifiedKFold(n_splits=effective_splits, shuffle=True, random_state=42)
-    # Keys here become the cross_validate result keys (e.g. "test_accuracy").
-    # Use the metric nickname as key; pass the full scorer string as value.
     scoring = {
         "accuracy": "accuracy",
         "precision": "precision_weighted",
         "recall": "recall_weighted",
         "f1_score": "f1_weighted",
     }
-    scores = cross_validate(
-        pipeline,
-        X,
-        y_encoded,
-        cv=cv,
-        scoring=scoring,
-        n_jobs=1,
-        error_score=0.0,  # return 0 on fold errors instead of raising
-    )
 
-    # cross_validate stores results as "test_<key>" using the dict key, not the scorer string.
+    try:
+        scores = cross_validate(
+            pipeline,
+            X,
+            y_encoded,
+            cv=cv,
+            scoring=scoring,
+            n_jobs=1,
+            error_score=0.0,
+        )
+    except Exception as exc:
+        logger.exception("Cross-validation failed for pipeline. Falling back to test split evaluation.")
+        return None
+
     return {
         key: float(np.mean(scores[f"test_{key}"]))
         for key in scoring
@@ -121,7 +127,10 @@ def _build_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
         steps=[("imputer", SimpleImputer(strategy="median")), ("scaler", StandardScaler())]
     )
     categorical_pipeline = Pipeline(
-        steps=[("imputer", SimpleImputer(strategy="most_frequent")), ("onehot", OneHotEncoder(handle_unknown="ignore"))]
+        steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
+        ]
     )
 
     return ColumnTransformer(

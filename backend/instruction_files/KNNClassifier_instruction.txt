@@ -1,0 +1,174 @@
+MODEL: KNNClassifier
+TOTAL_RUNS: 6405
+
+DATASET_TYPES_OBSERVED:
+•  tabular classification with mixed numerical and categorical features
+•  high-dimensional numerical datasets (30+ features)
+•  low-dimensional categorical-dominant datasets (10–15 features)
+•  imbalanced binary classification tasks
+•  balanced multi-class classification tasks
+
+FEATURE_SUBSET_SIZES:
+•  1-feature subsets: 110 runs
+•  2-feature subsets: 1268 runs
+•  3-feature subsets: 5027 runs
+
+ACCURACY_DISTRIBUTION:
+•  min_accuracy: 0.256
+•  max_accuracy: 1.000
+•  mean_accuracy: 0.851
+•  median_accuracy: 0.895
+•  std_accuracy: 0.115
+•  P10: 0.684
+•  P25: 0.781
+•  P75: 0.939
+•  P90: 0.956
+
+PRECISION_RECALL_F1:
+•  mean_precision: 0.851
+•  mean_recall: 0.851
+•  mean_f1_score: 0.847
+
+ROC_AUC:
+•  available_runs: 357
+•  mean_roc_auc: 0.895
+
+BEST_PERFORMING_CONDITIONS:
+•  3-feature subsets with predominantly numerical features (avg_size ~2.92, avg_numerical ~2.87)
+•  balanced class distributions (100% of very-high-accuracy runs are balanced)
+•  all-numerical feature spaces (mean accuracy: 0.864)
+•  encoding enabled (mean accuracy: 0.858 vs 0.738 without encoding — 12.0% gain)
+•  datasets with 5–9 total features offering high signal density per feature (mean accuracy: 0.962)
+•  datasets with 30+ total features providing a rich numerical pool (mean accuracy: 0.884)
+
+LOWEST_PERFORMING_CONDITIONS:
+•  single-feature subsets (mean accuracy: 0.655, std: 0.164 — highest instability)
+•  imbalanced class distributions at 3-feature level (mean accuracy: 0.699 vs 0.880 balanced — 18.1% drop)
+•  all-categorical feature subsets (mean accuracy: 0.725)
+•  mixed numerical + categorical feature subsets (mean accuracy: 0.740)
+•  datasets with 20–24 total features (mean accuracy: 0.684 — most difficult range)
+•  single-feature imbalanced runs (mean accuracy: 0.596, std: 0.231 — maximum instability point)
+
+ACCURACY_BY_FEATURE_SET_SIZE:
+•  1-feature: mean=0.655, std=0.164 (high variance — very unstable)
+•  2-feature: mean=0.772, std=0.135 (moderate variance)
+•  3-feature: mean=0.876, std=0.092 (most stable — recommended minimum)
+•  Note: KNN shows the largest absolute gain between size 2 and 3 among comparable models (+0.104)
+
+ACCURACY_BY_FEATURE_TYPE:
+•  all-numerical subsets: mean=0.864 (5790 runs)
+•  mixed subsets (34–66% categorical): mean=0.740 (204 runs)
+•  majority-categorical subsets (67–100% categorical): mean=0.725 (411 runs)
+•  Note: KNN's numerical-to-categorical gap (~13.9%) is driven by distance metric sensitivity —
+  Minkowski distance on encoded categorical features produces less meaningful neighbourhood structures
+
+ACCURACY_BY_CLASS_BALANCE:
+•  balanced datasets: mean=0.857 (6011 runs)
+•  imbalanced datasets: mean=0.760 (394 runs)
+•  imbalance penalty: ~9.7% average accuracy reduction
+•  imbalance effect is amplified at smaller feature set sizes (size=1 imbalanced mean: 0.596)
+
+ACCURACY_BY_DATASET_FEATURE_RICHNESS:
+•  5–9 total features: mean=0.962 (highest signal density per feature)
+•  15–19 total features: mean=0.833
+•  10–14 total features: mean=0.741
+•  20–24 total features: mean=0.684 (most difficult range)
+•  30–34 total features: mean=0.884 (rich numerical pool supports high-signal subset selection)
+
+SIZE_x_BALANCE_INTERACTION:
+•  size=1, balanced: mean=0.663, std=0.152
+•  size=1, imbalanced: mean=0.596, std=0.231 (most unstable combination — avoid)
+•  size=2, balanced: mean=0.765, std=0.138
+•  size=2, imbalanced: mean=0.798, std=0.119 (anomaly — imbalanced slightly outperforms balanced at size 2)
+•  size=3, balanced: mean=0.880, std=0.086 (optimal combination)
+•  size=3, imbalanced: mean=0.699, std=0.141 (sharpest imbalance penalty at the 3-feature level)
+
+FEATURE_TYPE_x_SIZE_INTERACTION:
+•  size=1, all-numeric: mean=0.670
+•  size=1, all-categorical: mean=0.624 (worst performing combination)
+•  size=2, all-numeric: mean=0.801
+•  size=2, all-categorical: mean=0.735
+•  size=3, all-numeric: mean=0.876 (best generalised performance)
+
+PREPROCESSING_IMPACT:
+•  scaling: enabled across all 6405 runs — universally required; KNN is highly sensitive to feature scale
+  as Minkowski distance directly depends on feature magnitude
+•  encoding impact is significant: encoding=True mean 0.858 vs encoding=False 0.738 (+12.0%)
+•  feature subset size increase from 1 to 3 features improves mean accuracy by ~22.1%
+•  unscaled features would severely distort neighbourhood computations — scaling is non-negotiable for KNN
+
+HYPERPARAMETER_CONFIGURATION (consistent across all runs):
+•  n_neighbors: 5 (default — fixed across all runs)
+•  weights: uniform (all neighbours weighted equally)
+•  metric: minkowski with p=2 (equivalent to Euclidean distance)
+•  algorithm: auto
+•  leaf_size: 30
+•  single unique hyperparameter configuration across all 6405 runs
+
+HYPERPARAMETER_PATTERNS:
+•  fixed n_neighbors=5 with uniform weights means all runs use the same neighbourhood size —
+  performance variation is entirely data-driven, not tuning-driven
+•  Euclidean distance (p=2, minkowski) is optimal for continuous numerical features but degrades
+  on encoded categorical features where ordinal distance is not meaningful
+•  larger n_neighbors would reduce variance but may lower sensitivity in compact, well-separated clusters
+•  smaller n_neighbors would increase sensitivity but amplify noise in low-signal or imbalanced subsets
+
+OBSERVED_MODEL_BEHAVIOR:
+•  accuracy improves consistently from 1 to 3 features (mean: 0.655 → 0.876) — KNN benefits strongly
+  from additional features that better define neighbourhood structure
+•  very high accuracy tier (>=0.95) exclusively from balanced datasets (100%) with near-full numerical subsets
+•  imbalance creates the sharpest performance cliff at 3-feature level (mean drops to 0.699) because
+  majority-class neighbours dominate voting in imbalanced neighbourhood distributions
+•  categorical features encoded as integers introduce artificial ordinal distance, disrupting
+  neighbourhood quality and consistently pulling accuracy below numerical-only subsets
+•  precision and recall are perfectly balanced (both 0.851) — KNN with uniform weights and balanced data
+  produces symmetric class treatment
+•  highest ROC AUC (0.895) among all compared models where available, suggesting strong probability
+  ranking ability on well-structured numerical data
+•  KNN has no training phase — all computation is at inference time, making it memory-intensive
+  and slower to predict on large datasets despite fast fitting
+
+COMMON_CHARACTERISTICS_OF_HIGH_ACCURACY_RUNS (accuracy >= 0.95):
+•  average feature set size: 2.92 (almost always 3 features)
+•  average numerical features in subset: 2.87 out of 3 (99% numerical)
+•  average categorical features in subset: 0.05 (near zero)
+•  100% of runs come from balanced datasets
+•  100% have encoding enabled
+
+COMMON_CHARACTERISTICS_OF_LOW_ACCURACY_RUNS (accuracy < 0.70):
+•  average feature set size: 2.32 (more 1- and 2-feature runs)
+•  average numerical features in subset: 1.84
+•  average categorical features in subset: 0.48 (highest categorical presence of any model's low tier)
+•  only 86% from balanced datasets
+•  91% have encoding enabled (encoding cannot compensate for categorical distance distortion)
+
+COMPARISON_TO_OTHER_MODELS:
+•  KNNClassifier mean accuracy (0.851) sits between GaussianNB (0.837) and CatBoost (0.87)
+•  KNNClassifier std (0.115) is lower than GaussianNB (0.136) but higher than CatBoost (0.10)
+  and DecisionTree (0.11)
+•  KNNClassifier has the highest ROC AUC (0.895) among all models with available ROC data,
+  above GaussianNB (0.875) and DecisionTree (0.818)
+•  KNNClassifier imbalance penalty (~9.7%) is moderate — worse than CatBoost (7.9%) and
+  DecisionTree (6.6%) but better than GaussianNB (20.7%)
+•  KNNClassifier encoding benefit (+12.0%) is second only to GaussianNB (+13.9%),
+  and much higher than CatBoost (+7.6%) and DecisionTree (<1%)
+•  KNNClassifier has the highest minimum accuracy floor (0.256) — more resilient to total failure
+  than GaussianNB (0.140) and DecisionTree (0.210)
+•  KNNClassifier precision and recall are perfectly balanced (0.851 each) — unique among compared models
+•  KNNClassifier is the only model where very-high-accuracy runs are 100% balanced —
+  imbalance entirely excludes it from the top accuracy tier
+
+MODEL_SELECTION_REASONING:
+KNNClassifier should be prioritised for balanced, low-to-moderate dimensional datasets where features
+are numerical, scaled, and encoded, and where neighbourhood structure is meaningful (compact, well-separated
+clusters). It achieves the highest ROC AUC among compared models and offers symmetric precision-recall
+performance. It is particularly effective with 3-feature subsets on datasets with 5–9 or 30+ total features,
+where signal density per feature is high and Euclidean distance reliably reflects class proximity.
+
+MODEL_AVOIDANCE_REASONING:
+Avoid KNNClassifier for imbalanced datasets — it is completely excluded from the very-high-accuracy tier
+under imbalance and suffers an 18.1% accuracy drop at the 3-feature level specifically. Also avoid for
+categorical-dominant feature subsets where Euclidean distance on encoded integers does not reflect true
+feature similarity. KNNClassifier is not suitable when inference latency or memory efficiency is critical,
+as it stores the full training set and computes distances at prediction time. For noisy, sparse, or
+high-categorical datasets, CatBoostClassifier is a more robust alternative.

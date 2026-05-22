@@ -1,11 +1,12 @@
 MODEL: DecisionTreeClassifier
 TOTAL_RUNS: 6405
+
 DATASET_TYPES_OBSERVED:
-•  biomedical (breast cancer diagnosis, heart disease)
-•  tabular classification (income, glass type, wine quality)
-•  categorical-dominant datasets (mushroom classification, census income)
-•  botanical/species classification (iris)
-•  mixed numerical and categorical datasets
+•  tabular classification with mixed numerical and categorical features
+•  high-dimensional numerical datasets (30+ features)
+•  low-dimensional categorical-dominant datasets (10–15 features)
+•  imbalanced binary classification tasks
+•  balanced multi-class classification tasks
 
 FEATURE_SUBSET_SIZES:
 •  1-feature subsets: 109 runs
@@ -18,119 +19,109 @@ ACCURACY_DISTRIBUTION:
 •  mean_accuracy: 0.83
 •  median_accuracy: 0.87
 •  std_accuracy: 0.11
+•  P10: 0.674
+•  P25: 0.763
+•  P75: 0.912
+•  P90: 0.939
 
 PRECISION_RECALL_F1:
 •  mean_precision: 0.830
 •  mean_recall: 0.832
 •  mean_f1_score: 0.827
 
-ROC_AUC:
-•  available_runs: 357
-•  mean_roc_auc: 0.818
-
 BEST_PERFORMING_CONDITIONS:
-•  3-feature subsets (mean accuracy: 0.850)
-•  purely numerical feature spaces (mean accuracy: 0.839)
-•  balanced class distributions (mean accuracy: 0.836)
-•  high-signal features such as odor, area_worst, perimeter_worst, chol
-•  low-dimensional structured datasets with strong discriminative features
+•  3-feature subsets with predominantly numerical features (avg_size ~2.88, avg_numerical_features ~2.82)
+•  balanced class distributions (97% of high-accuracy runs are balanced)
+•  all-numerical feature spaces (mean accuracy: 0.839)
+•  feature subsets drawn from datasets with 30+ total features
+•  datasets with 5–9 total features where each feature carries high individual signal (mean accuracy: 0.948)
+•  feature subsets where the majority of selected features are numerical
 
 LOWEST_PERFORMING_CONDITIONS:
-•  single-feature subsets (mean accuracy: 0.674)
-•  weak elemental features (Fe, Si, Ca) with accuracy as low as 0.21
-•  imbalanced class distributions (mean accuracy: 0.770)
-•  purely categorical feature spaces (mean accuracy: 0.770)
-•  mixed numerical and categorical combinations without strong signals (mean accuracy: 0.769)
+•  single-feature subsets (mean accuracy: 0.674, std: 0.144 — highest instability)
+•  imbalanced class distributions (mean accuracy: 0.770 vs 0.836 balanced — 6.6% drop)
+•  all-categorical or majority-categorical feature subsets (mean accuracy: 0.770)
+•  mixed numerical + categorical feature subsets (mean accuracy: 0.769)
+•  datasets with 20–24 total features (mean accuracy: 0.738 — most difficult range)
+•  unbounded tree depth with low-signal feature combinations (prone to overfitting)
 
-TOP_FEATURE_PATTERNS:
-•  chol + oldpeak + trestbps (accuracy: 1.00)
-•  chol + sex + thalach (accuracy: 1.00)
-•  chol + exang + trestbps (accuracy: 1.00)
-•  chol + thalach + trestbps (accuracy: 1.00)
-•  age + chol + slope (accuracy: 1.00)
-•  Id + PetalLengthCm + SepalLengthCm (accuracy: 1.00)
-•  PetalLengthCm + SepalLengthCm (accuracy: 1.00)
-•  Color.int + Hue + Proline (accuracy: 1.00)
+ACCURACY_BY_FEATURE_SET_SIZE:
+•  1-feature: mean=0.674, std=0.144 (high variance — very unstable)
+•  2-feature: mean=0.774, std=0.116
+•  3-feature: mean=0.850, std=0.096 (most stable)
 
-TOP_INDIVIDUAL_FEATURES_BY_AVERAGE_ACCURACY:
-•  odor: 0.986 (22 runs)
-•  PetalLengthCm: 0.983 (4 runs)
-•  Id: 0.977 (50 runs)
-•  chol: 0.938 (79 runs)
-•  area_worst: 0.929 (466 runs)
-•  perimeter_worst: 0.925 (466 runs)
-•  radius_worst: 0.924 (466 runs)
-•  concave points_worst: 0.906 (466 runs)
-•  spore-print-color: 0.905 (22 runs)
-•  area_mean: 0.903 (466 runs)
-•  thalach: 0.902 (79 runs)
-•  SepalLengthCm: 0.925 (4 runs)
+ACCURACY_BY_FEATURE_TYPE:
+•  all-numerical subsets: mean=0.839 (5790 runs)
+•  majority-categorical subsets (67–100% categorical): mean=0.770 (411 runs)
+•  mixed subsets (34–66% categorical): mean=0.769 (204 runs)
 
-COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
-•  feature_count >= 2 (accuracy improves substantially from 1 to 3 features)
-•  low missing value percentage
-•  balanced class distribution
-•  numerical dominance with high-signal discriminative features
-•  meaningful categorical features with strong class separability (e.g., odor, spore-print-color)
+ACCURACY_BY_CLASS_BALANCE:
+•  balanced datasets: mean=0.836 (6010 runs)
+•  imbalanced datasets: mean=0.770 (395 runs)
+•  imbalance penalty: ~6.6% average accuracy reduction
 
-HIGH_ACCURACY_DATASET_DISTRIBUTION (accuracy >= 0.95):
-•  383 total runs achieved >= 0.95 accuracy
-•  diagnosis (breast cancer): 227 runs
-•  target (heart disease): 79 runs
-•  Type of glass: 46 runs
-•  class (mushroom): 23 runs
-•  Species (iris): 5 runs
-•  Wine: 3 runs
-
-LOW_ACCURACY_DATASET_DISTRIBUTION (accuracy < 0.60):
-•  229 total runs
-•  diagnosis: 125 runs (driven by weak/uninformative feature pairs)
-•  Type of glass: 59 runs (elemental chemistry features dominate)
-•  class (mushroom): 23 runs
-•  Wine: 18 runs
-
-OBSERVED_MODEL_BEHAVIOR:
-•  strong and consistent performance improvement from 1 to 3 feature subsets (mean: 0.674 → 0.850)
-•  high variance on single-feature runs (std: 0.144), stabilizing with more features
-•  achieves perfect accuracy (1.00) on well-structured datasets with clinically meaningful features
-•  performs comparably on numerical-only vs encoded categorical runs, unlike distance-based models
-•  sensitive to uninformative or noisy features; Fe + Si combination drops to 0.26 accuracy
-•  prone to overfitting with unlimited depth (max_depth=None) on noisy or low-signal feature sets
-•  relatively stable across mixed feature types when at least one feature has strong discriminative power
+ACCURACY_BY_DATASET_FEATURE_RICHNESS:
+•  5–9 total features: mean=0.948 (high signal density per feature)
+•  15–19 total features: mean=0.834
+•  10–14 total features: mean=0.786
+•  20–24 total features: mean=0.738 (most difficult range)
+•  30–34 total features: mean=0.847 (large feature pool supports better subset selection)
 
 PREPROCESSING_IMPACT:
-•  scaling enabled across all 6405 runs (universal)
-•  encoding impact minimal for DecisionTree: encoding=True mean acc 0.832 vs encoding=False 0.837
-  (DecisionTree splits on thresholds and handles ordinal encodings natively)
-•  feature subset size increase from 1 to 3 features improved mean accuracy by ~17.6%
-•  noisy or uninformative single features (Fe, Si, Ca) produced accuracies as low as 0.21
+•  scaling: enabled across all runs — universally applied
+•  encoding impact is minimal for DecisionTreeClassifier: encoding=True mean 0.832 vs encoding=False 0.837
+  (Decision Trees split on ranked thresholds and are not sensitive to ordinal encoding differences)
+•  increasing feature subset size from 1 to 3 improves mean accuracy by ~17.6%
+•  model is more sensitive to feature informativeness than preprocessing choices
 
-DATASET_BALANCE_IMPACT:
-•  relatively balanced datasets: 6010 runs, mean accuracy 0.836
-•  imbalanced datasets: 395 runs, mean accuracy 0.770
-•  class imbalance reduces DecisionTreeClassifier performance by approximately 6.6%
-
-FEATURE_TYPE_IMPACT:
-•  numerical-only feature sets: mean accuracy 0.839 (5790 runs)
-•  categorical-only feature sets: mean accuracy 0.770 (407 runs)
-•  mixed feature sets: mean accuracy 0.769 (208 runs)
-
-HYPERPARAMETER_CONFIGURATION (observed across all runs):
+HYPERPARAMETER_CONFIGURATION (consistent across all runs):
 •  criterion: gini
 •  splitter: best
-•  max_depth: None (unbounded — susceptible to overfitting on noisy feature sets)
+•  max_depth: None (unbounded — risk of overfitting on weak feature combinations)
 •  min_samples_split: 2
 •  min_samples_leaf: 1
 •  max_features: None
-•  ccp_alpha: 0.0 (no pruning applied)
+•  ccp_alpha: 0.0 (no pruning)
 •  random_state: 42
 
 HYPERPARAMETER_PATTERNS:
-•  unbounded max_depth with min_samples_leaf=1 maximizes fit on training data but risks instability on weak feature combinations
-•  no pruning (ccp_alpha=0.0) means low-signal feature sets are more likely to produce overfit trees with poor generalization
+•  unbounded max_depth with min_samples_leaf=1 maximises fit but increases overfitting risk on low-signal subsets
+•  no pruning (ccp_alpha=0.0) means trees can memorise noise in weak feature combinations
+•  these settings favour high-signal, balanced datasets and penalise noisy or weak feature subsets more than regularised models
+
+OBSERVED_MODEL_BEHAVIOR:
+•  consistent accuracy gain as feature set size increases from 1 to 3 (mean: 0.674 → 0.850)
+•  variance decreases as feature set size increases (std: 0.144 → 0.096) — more features stabilise the tree
+•  very high accuracy tier (>=0.95) driven by 3-feature, numerical, balanced runs (avg_size 2.86, 97% numerical)
+•  low accuracy tier (<0.70) has higher proportion of smaller subsets, imbalanced classes, and categorical features
+•  encoding has negligible impact — Decision Trees are inherently robust to feature scaling and encoding differences
+•  without depth constraints, low-signal feature combinations produce overfit trees with poor generalisation
+•  model underperforms CatBoostClassifier on average (mean 0.83 vs 0.87) and has higher variance (std 0.11 vs 0.10)
+
+COMMON_CHARACTERISTICS_OF_HIGH_ACCURACY_RUNS (accuracy >= 0.95):
+•  average feature set size: 2.86 (almost always 3 features)
+•  average numerical features in subset: 2.74 out of 3 (97% numerical)
+•  average categorical features in subset: 0.12
+•  88% of runs come from balanced datasets
+•  encoding enabled in 79% of runs (encoding matters less than for CatBoost)
+
+COMMON_CHARACTERISTICS_OF_LOW_ACCURACY_RUNS (accuracy < 0.70):
+•  average feature set size: 2.53 (more 1- and 2-feature runs)
+•  average numerical features in subset: 2.32
+•  average categorical features in subset: 0.21
+•  86% from balanced datasets (balance alone does not guarantee good performance)
+•  97% have encoding enabled (encoding does not rescue poor feature choices)
+
+COMPARISON_TO_CATBOOSTCLASSIFIER:
+•  DecisionTree mean accuracy is 4% lower than CatBoost (0.83 vs 0.87)
+•  DecisionTree has higher variance overall (std 0.11 vs 0.10)
+•  DecisionTree is insensitive to encoding (unlike CatBoost which shows 7.6% encoding benefit)
+•  Both models degrade similarly on imbalanced data (~6–8% accuracy drop)
+•  Both models respond identically to feature set size increases
+•  DecisionTree is more interpretable; CatBoost is more accurate
 
 MODEL_SELECTION_REASONING:
-DecisionTreeClassifier should be prioritized for structured classification tasks where interpretability is important and feature sets contain strong discriminative signals. It performs well across both numerical and categorical datasets, particularly with 3-feature subsets and balanced class distributions. It achieves perfect accuracy on well-separated datasets (heart disease, iris, wine) and is robust to feature scaling differences, making it easy to apply with minimal preprocessing overhead.
+DecisionTreeClassifier should be prioritised when model interpretability is required alongside reasonable accuracy, particularly on balanced datasets with 2–3 numerical features carrying strong discriminative signal. It is preprocessing-light (insensitive to scaling and encoding) and performs well when feature subsets are drawn from numerically rich datasets. Best suited for quick baseline establishment and explainable classification pipelines.
 
 MODEL_AVOIDANCE_REASONING:
-Avoid DecisionTreeClassifier for single-feature subsets or datasets with weak, noisy, or correlated low-information features (e.g., elemental composition fields like Fe, Si, Ca). Without depth constraints or pruning, it is prone to overfitting on small or noisy samples. It also underperforms on imbalanced datasets compared to ensemble alternatives, and its higher variance (std: 0.11) relative to boosted models makes it less reliable in uncertain feature selection scenarios.
+Avoid DecisionTreeClassifier for single-feature classification tasks, heavily imbalanced datasets, or feature subsets dominated by categorical features. Without depth constraints or pruning, it overfits on low-signal or noisy feature combinations. When accuracy is the primary objective over interpretability, CatBoostClassifier or ensemble methods should be preferred. Also avoid when the dataset falls in the difficult 20–24 total feature range without clear high-signal numerical features.

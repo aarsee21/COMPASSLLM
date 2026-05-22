@@ -1,139 +1,86 @@
-# ============================================================
-#  MODEL INSTRUCTIONS FILE
-#  Source CSV   : LogisticRegression.csv  (6 405 runs analysed)
-#  Generated    : 2026-05-20
-# ============================================================
-
 MODEL: LogisticRegression
-
-# ----------------------------------------------------------
-# OVERVIEW
-# ----------------------------------------------------------
-TOTAL_RUNS: 6405
-
-# All 6 405 rows in the source CSV represent LogisticRegression
-# runs used to characterise dataset and feature-subset behaviour.
-# The observations below guide LogisticRegression
-# selection and configuration on equivalent datasets.
-
-# ----------------------------------------------------------
-# DATASET TYPES OBSERVED
-# ----------------------------------------------------------
+TOTAL_RUNS: 6404
 DATASET_TYPES_OBSERVED:
-  - biomedical                         # e.g. breast-cancer diagnosis (dataset_id: 08a89f71), heart-disease (f8a62dbb)
-  - tabular classification             # e.g. bank-marketing campaign (a77cbe1a)
-  - statistical numerical datasets     # majority of features are continuous/numerical across all dataset IDs
+•  biomedical binary classification (numerical dominant)
+•  clinical diagnostic (low-dimensional numerical)
+•  behavioral/marketing (imbalanced, categorical dominant)
+•  tabular mixed (numerical and categorical combined)
+•  species/botanical classification (high-signal low-dimensional)
 
-# ----------------------------------------------------------
-# FEATURE SUBSET SIZES
-# ----------------------------------------------------------
-# CSV column `run_metadata.feature_set_size` breakdown:
 FEATURE_SUBSET_SIZES:
-  2-feature subsets : 3120 runs   # feature_set_size == 2
-  3-feature subsets : 3285 runs   # feature_set_size == 3
+•  1-feature subsets: 108 runs
+•  2-feature subsets: 1268 runs
+•  3-feature subsets: 5028 runs
 
-# ----------------------------------------------------------
-# ACCURACY DISTRIBUTION
-# ----------------------------------------------------------
-# Derived from the `metrics.accuracy` column across all 6 405 rows.
 ACCURACY_DISTRIBUTION:
-  min_accuracy    : 0.41
-  max_accuracy    : 0.98
-  mean_accuracy   : 0.81
-  median_accuracy : 0.84
-  std_accuracy    : 0.09
+•  min_accuracy: 0.19
+•  max_accuracy: 1.00
+•  mean_accuracy: 0.86
+•  median_accuracy: 0.91
+•  std_accuracy: 0.12
 
-# ----------------------------------------------------------
-# BEST PERFORMING CONDITIONS
-# ----------------------------------------------------------
+PRECISION_RECALL_F1:
+•  mean_precision: 0.853
+•  mean_recall: 0.861
+•  mean_f1_score: 0.851
+
 BEST_PERFORMING_CONDITIONS:
-  - numerical feature spaces       # datasets with 100 % numerical features (e.g. heart-disease, breast-cancer)
-  - scaled datasets                # all 6 405 CSV runs used scaling_enabled: true; top accuracies clustered here
-  - low dimensionality             # 2- and 3-feature subsets captured the full accuracy range; peak results at 3 features
-  - balanced classes               # "relatively balanced" instruction strings correlated with higher accuracy values
+•  3-feature subsets (mean accuracy: 0.88)
+•  numerical-dominant feature spaces with high discriminative power
+•  balanced class distributions
+•  encoding enabled for categorical features
+•  scaled inputs across all feature types
 
-# ----------------------------------------------------------
-# LOWEST PERFORMING CONDITIONS
-# ----------------------------------------------------------
 LOWEST_PERFORMING_CONDITIONS:
-  - noisy feature combinations         # e.g. smoothness_mean + fractal_dimension_se subsets (~68–74 % accuracy)
-  - highly correlated redundant attrs  # _worst suffix triplicates of _mean features showed diminishing returns
-  - sparse feature spaces              # Unnamed: 32 (near-empty column) dragged accuracy in several runs
-  - unscaled datasets                  # no unscaled runs in source CSV; consistent with known KNN sensitivity to scale
+•  single-feature subsets (mean accuracy: 0.69)
+•  weak or low-signal individual features (elemental, compositional)
+•  imbalanced class distributions
+•  encoding disabled on categorical datasets
+•  purely categorical feature spaces without strong class separators
 
-# ----------------------------------------------------------
-# TOP FEATURE PATTERNS
-# ----------------------------------------------------------
-# Highest-accuracy feature combinations observed in source CSV
-# (directly applicable as prior knowledge for KNN feature selection):
 TOP_FEATURE_PATTERNS:
-  - age + chol + oldpeak                          # heart-disease dataset (f8a62dbb); strong numerical trio
-  - fractal_dimension_mean + concave_points_se    # breast-cancer dataset (08a89f71); compact local structure
-  - texture_mean + radius_mean                    # breast-cancer dataset (08a89f71); low-redundancy pair
+•  high-signal continuous features with strong linear separability (accuracy: 1.00)
+•  combinations of size-related morphological features (accuracy: 0.96–0.98)
+•  mixed discriminative numerical features across 3-feature subsets (accuracy: 0.95+)
 
-# ----------------------------------------------------------
-# COMMON DATASET CHARACTERISTICS FOR HIGH PERFORMANCE
-# ----------------------------------------------------------
 COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
-  feature_count              : <= 5
-  low missing value pct      : true    # all CSV datasets flagged "low missing values" in instruction strings
-  numerical dominance        : > 80 %  # breast-cancer (32 num / 1 cat) and heart-disease (14 num / 0 cat)
-  moderate variance          : true    # feature std well-distributed; no extreme outlier variance columns
-  compact local clustering   : true    # biomedical datasets exhibit tight intra-class neighbourhood structure
+•  feature_count >= 2
+•  low missing value percentage
+•  balanced or near-balanced class distribution
+•  numerical dominance with linearly separable features
+•  encoding enabled when categorical features are present
 
-# ----------------------------------------------------------
-# OBSERVED MODEL BEHAVIOUR
-# ----------------------------------------------------------
 OBSERVED_MODEL_BEHAVIOR:
-  - performance drops after dimensionality increases   # accuracy variance rose with more features in subset
-  - sensitive to feature scaling                       # all high-accuracy runs used scaling_enabled: true
-  - stable on compact biomedical datasets              # breast-cancer runs showed consistent high accuracy (>90 %)
-  - weak on sparse datasets                            # Unnamed: 32 inclusion consistently lowered accuracy
+•  consistent accuracy gain from 1 to 3 features (0.69 → 0.88 mean)
+•  strong performance on numerically dominant, balanced datasets
+•  degrades significantly on imbalanced datasets (balanced: 0.87 vs imbalanced: 0.72)
+•  sensitive to encoding — disabled encoding reduces mean accuracy by ~24%
+•  achieves perfect accuracy (1.00) on linearly separable low-dimensional feature sets
+•  weak on single low-information features with no linear boundary
 
-# ----------------------------------------------------------
-# PREPROCESSING IMPACT
-# ----------------------------------------------------------
 PREPROCESSING_IMPACT:
-  scaling_accuracy_improvement : N/A
-    # NOTE: All 6 405 source-CSV runs were executed with scaling_enabled: true.
-    # A direct scaled-vs-unscaled delta cannot be computed from this file.
-    # Based on domain knowledge, LogisticRegression typically gains on
-    # numerical datasets when StandardScaler / MinMaxScaler is applied.
-    # Re-run a held-out unscaled baseline to obtain a dataset-specific figure.
-  feature_reduction_impact     : improved stability    # smaller subsets showed lower accuracy std (0.06 vs 0.11)
-  noisy_feature_impact         : reduced performance   # verified by smoothness_mean / fractal_dimension_se subsets
+•  scaling enabled across all 6404 runs (universal requirement)
+•  encoding improved mean accuracy by ~24.4% (0.871 vs 0.700 without encoding)
+•  increasing feature subset size from 1 to 3 improved mean accuracy by ~19.5%
+•  noisy or weak individual features (uninformative single features) dropped accuracy to ~0.19–0.23
 
-# ----------------------------------------------------------
-# HYPERPARAMETER PATTERNS
-# ----------------------------------------------------------
-HYPERPARAMETER_PATTERNS:
-  low_C_value         : increased regularisation; may underfit on small feature subsets
-  high_C_value        : reduced regularisation; improved fit on clean numerical features
-    # Recommendation: cross-validate C in [0.01, 0.1, 1.0, 10] on each dataset;
-    # default C=1.0 (as used in all CSV runs) performed well on balanced biomedical datasets.
+DATASET_BALANCE_IMPACT:
+•  balanced datasets: 6010 runs, mean accuracy 0.870
+•  imbalanced datasets: 394 runs, mean accuracy 0.722
+•  class imbalance reduces LogisticRegression performance by approximately 14.8%
 
-# ----------------------------------------------------------
-# MODEL SELECTION REASONING
-# ----------------------------------------------------------
-MODEL_SELECTION_REASONING: >
-  LogisticRegression should be prioritised for low-dimensional numerical datasets
-  with scaled features and balanced classes.
-  Evidence from 6 405 runs shows that datasets such as breast-cancer diagnosis
-  and heart-disease — which are fully numerical, low-dimensional, and balanced —
-  consistently achieve accuracy above 0.90 with well-chosen 2–3 feature subsets,
-  making them ideal candidates where linear decision boundaries are effective.
+FEATURE_TYPE_IMPACT:
+•  numerical-only feature sets: mean accuracy 0.871 (5789 runs)
+•  categorical-only feature sets: mean accuracy 0.765 (407 runs)
+•  mixed feature sets: mean accuracy 0.783 (208 runs)
 
-# ----------------------------------------------------------
-# MODEL AVOIDANCE REASONING
-# ----------------------------------------------------------
-MODEL_AVOIDANCE_REASONING: >
-  Avoid LogisticRegression for highly non-linear datasets or heavily imbalanced
-  targets without class-weight correction.
-  The source CSV confirms that sparse or noisy feature combinations
-  (e.g. Unnamed: 32, smoothness_mean pairings) degrade accuracy significantly
-  (down to ~0.41–0.68). Additionally, LogisticRegression assumes a linear
-  decision boundary, making it unsuitable when class separability is non-linear.
+HIGH_ACCURACY_DATASET_DISTRIBUTION (accuracy >= 0.95):
+•  1519 runs achieved >= 0.95 accuracy
+•  numerical biomedical datasets dominated high-accuracy runs (1469 of 1519)
+•  well-structured tabular datasets with strong features contributed remaining runs
 
-# ============================================================
-#  END OF FILE
-# ============================================================
+MODEL_SELECTION_REASONING:
+LogisticRegression should be prioritized for binary and multi-class classification on balanced, numerical-dominant datasets where linear decision boundaries are plausible. Best suited for 2–3 feature subsets with scaled inputs and encoding enabled. Performs reliably on structured biomedical and tabular data with low dimensionality and high-signal features.
+
+MODEL_AVOIDANCE_REASONING:
+Avoid LogisticRegression for single weak or uninformative features, highly imbalanced datasets without compensation, and non-linear classification problems. Performance also drops on purely categorical feature spaces without strong class-separating signals, and when encoding is not applied.

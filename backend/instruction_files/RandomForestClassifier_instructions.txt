@@ -1,174 +1,87 @@
-# ============================================================
-#  MODEL INSTRUCTIONS FILE
-#  Source CSV   : RandomForestClassifier.csv  (6 405 runs analysed)
-#  Generated    : 2026-05-20
-# ============================================================
-
 MODEL: RandomForestClassifier
-
-# ----------------------------------------------------------
-# OVERVIEW
-# ----------------------------------------------------------
-TOTAL_RUNS: 6405
-
-# All 6 405 rows in the source CSV represent RandomForestClassifier
-# runs used to characterise dataset and feature-subset behaviour.
-# The observations below guide RandomForestClassifier
-# selection and configuration on equivalent datasets.
-
-# ----------------------------------------------------------
-# DATASET TYPES OBSERVED
-# ----------------------------------------------------------
+TOTAL_RUNS: 6404
 DATASET_TYPES_OBSERVED:
-  - biomedical                         # breast-cancer diagnosis (dataset_id: 08a89f71); 32 num + 1 cat features
-  - tabular classification             # bank-marketing campaign (a77cbe1a); 7 num + 10 cat features
-  - socioeconomic / census             # adult income classification (6246547e); 6 num + 9 cat features
-  - material / scientific              # glass identification (fc63e8d4); 11 num + 0 cat; multi-class target
+•  biomedical binary classification (numerical dominant)
+•  clinical diagnostic (low-dimensional numerical)
+•  behavioral/marketing (imbalanced, categorical dominant)
+•  tabular mixed (numerical and categorical combined)
+•  multi-class compositional/material classification (numerical)
+•  species/botanical classification (high-signal low-dimensional)
 
-# ----------------------------------------------------------
-# FEATURE SUBSET SIZES
-# ----------------------------------------------------------
-# CSV column `run_metadata.feature_set_size` breakdown:
 FEATURE_SUBSET_SIZES:
-  2-feature subsets : 3120 runs   # feature_set_size == 2
-  3-feature subsets : 3285 runs   # feature_set_size == 3
+•  1-feature subsets: 108 runs
+•  2-feature subsets: 1268 runs
+•  3-feature subsets: 5028 runs
 
-# ----------------------------------------------------------
-# ACCURACY DISTRIBUTION
-# ----------------------------------------------------------
-# Derived from the `metrics.accuracy` column across all 6 405 rows.
 ACCURACY_DISTRIBUTION:
-  min_accuracy    : 0.70
-  max_accuracy    : 0.97
-  mean_accuracy   : 0.90
-  median_accuracy : 0.93
-  std_accuracy    : 0.06
+•  min_accuracy: 0.21
+•  max_accuracy: 1.00
+•  mean_accuracy: 0.86
+•  median_accuracy: 0.90
+•  std_accuracy: 0.10
 
-# ----------------------------------------------------------
-# BEST PERFORMING CONDITIONS
-# ----------------------------------------------------------
+PRECISION_RECALL_F1:
+•  mean_precision: 0.861
+•  mean_recall: 0.865
+•  mean_f1_score: 0.859
+
 BEST_PERFORMING_CONDITIONS:
-  - numerical feature spaces        # purely numerical datasets (glass: 11 num/0 cat; breast-cancer: 32 num/1 cat)
-  - balanced class distributions    # "relatively balanced" datasets (breast-cancer) achieved top accuracy >0.94
-  - low dimensionality subsets      # 2–3 feature subsets with high individual feature importance
-  - encoded categorical features    # encoding_enabled: true ensured categorical features contributed meaningfully
-  - shape / morphology features     # area_mean, concave_points, radius features consistently topped accuracy
+•  3-feature subsets (mean accuracy: 0.89)
+•  numerical-dominant feature spaces with high discriminative power
+•  balanced class distributions
+•  encoding enabled for categorical features
+•  scaled inputs with low missing value rates
 
-# ----------------------------------------------------------
-# LOWEST PERFORMING CONDITIONS
-# ----------------------------------------------------------
 LOWEST_PERFORMING_CONDITIONS:
-  - noise-prone feature combinations    # smoothness_se + symmetry_se + symmetry_worst yielded ~70.2 % accuracy
-  - low-signal symmetry features        # symmetry_* and smoothness_* features showed weak tree-split utility
-  - imbalanced datasets without weight  # class_weight: null on imbalanced targets (income, bank) capped F1 scores
-  - pure categorical 2-feature subsets  # job + education type combos gave lower precision despite high recall
+•  single-feature subsets (mean accuracy: 0.67)
+•  weak or low-signal individual features (elemental, sparse compositional)
+•  imbalanced class distributions
+•  purely categorical or mixed feature spaces without strong class separators
+•  low-information single features with poor class boundary definition
 
-# ----------------------------------------------------------
-# TOP FEATURE PATTERNS
-# ----------------------------------------------------------
-# Highest-accuracy feature combinations observed in source CSV:
 TOP_FEATURE_PATTERNS:
-  - area_mean + symmetry_mean + texture_worst          # breast-cancer; 96.5 % accuracy
-  - area_mean + concave points_mean + concavity_worst  # breast-cancer; 95.6 % accuracy
-  - texture_se + area_se + smoothness_se               # breast-cancer; 92.1 % accuracy
-  - radius_se + radius_worst + compactness_worst       # breast-cancer; 94.7 % accuracy
-  - Id + Al + Fe                                       # glass identification; 93.0 % accuracy (roc_auc: 0.994)
+•  high-signal numerical features forming non-linear discriminative combinations (accuracy: 1.00)
+•  clinical numerical triplets with complementary diagnostic signals (accuracy: 1.00)
+•  compact low-dimensional features with strong inter-class variance (accuracy: 0.95–1.00)
 
-# ----------------------------------------------------------
-# COMMON DATASET CHARACTERISTICS FOR HIGH PERFORMANCE
-# ----------------------------------------------------------
 COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
-  feature_count              : <= 5
-  low missing value pct      : true    # all CSV datasets flagged "low missing values" in instruction strings
-  numerical dominance        : > 80 %  # top results on datasets with 100 % or near-100 % numerical features
-  class balance              : relatively balanced preferred; imbalanced datasets need class_weight tuning
-  high feature importance    : true    # RF thrives when a few features carry strong gini impurity signal
-  encoding applied           : true    # encoding_enabled: true across all categorical-feature runs
+•  feature_count >= 2
+•  low missing value percentage
+•  balanced or near-balanced class distribution
+•  numerical dominance with non-linear feature interactions
+•  encoding enabled when categorical features are present
 
-# ----------------------------------------------------------
-# OBSERVED MODEL BEHAVIOUR
-# ----------------------------------------------------------
 OBSERVED_MODEL_BEHAVIOR:
-  - robust to feature scale differences     # RF does not require scaling; tree splits are rank-based
-  - strong on morphological feature sets    # area/concavity/radius groupings drove best breast-cancer results
-  - handles mixed feature types             # numerical + categorical datasets (income, bank) performed reliably
-  - sensitive to low-signal feature choice  # symmetry + smoothness subsets degraded accuracy significantly
-  - bootstrap aggregation reduced variance  # bootstrap: true + 100 estimators stabilised accuracy across runs
-  - unlimited depth risked overfitting      # max_depth: null on small 2–3 feature subsets; monitor with cv
+•  strong accuracy gain from 1 to 3 features (0.67 → 0.89 mean)
+•  robust on both balanced and moderately imbalanced datasets
+•  handles numerical and categorical features well when encoding is applied
+•  weak on single low-signal features — accuracy drops to 0.21 on sparse individual inputs
+•  stable across varied dataset types due to ensemble averaging
+•  achieves perfect accuracy (1.00) on linearly and non-linearly separable low-dimensional sets
 
-# ----------------------------------------------------------
-# PREPROCESSING IMPACT
-# ----------------------------------------------------------
 PREPROCESSING_IMPACT:
-  scaling_accuracy_improvement : N/A
-    # NOTE: All 6 405 source-CSV runs were executed with scaling_enabled: true.
-    # RandomForestClassifier is inherently scale-invariant (split thresholds are
-    # rank-based), so scaling does not directly affect accuracy. No unscaled
-    # baseline exists in this file to compute a delta.
-  encoding_impact              : essential for categorical features
-    # encoding_enabled: true was required for all categorical columns (job,
-    # education, housing, month, etc.); runs without encoding would fail tree splits.
-  feature_reduction_impact     : improved stability
-    # 2-feature subsets showed slightly higher variance; 3-feature subsets
-    # provided more stable gini-split signals across trees.
-  noisy_feature_impact         : reduced performance
-    # symmetry_se / smoothness_se inclusion consistently pulled accuracy below 0.75.
+•  scaling enabled across all 6404 runs (universal requirement)
+•  encoding improved mean accuracy by ~3.0% (0.866 vs 0.836 without encoding)
+•  increasing feature subset from 1 to 3 improved mean accuracy by ~19.6%
+•  weak or sparse single features (low-information elemental inputs) dropped accuracy to ~0.21–0.37
 
-# ----------------------------------------------------------
-# HYPERPARAMETER PATTERNS
-# ----------------------------------------------------------
-# Parameters observed uniformly across all 6 405 CSV runs:
-HYPERPARAMETER_PATTERNS:
-  n_estimators       : 100 (fixed across all runs)
-    # Sufficient for stable ensemble voting on 2–3 feature subsets;
-    # increase to 200–500 for higher-dimensional datasets.
-  max_features       : sqrt
-    # sqrt(p) features per split reduces inter-tree correlation and
-    # improves generalisation; appropriate for low-dimensional subsets.
-  criterion          : gini
-    # Gini impurity performed well across all dataset types observed.
-    # Consider entropy for datasets with fine-grained class boundaries.
-  max_depth          : null (unlimited)
-    # Trees grown to full depth on 2–3 feature subsets; consider
-    # max_depth in [5, 10, 15] to prevent overfitting on noisier feature sets.
-  bootstrap          : true
-    # Bagging with replacement is the core variance-reduction mechanism;
-    # keep enabled for all production runs.
-  class_weight       : null
-    # All runs used no class weighting. For imbalanced targets (income: 6246547e,
-    # bank: a77cbe1a), set class_weight: balanced to improve minority-class recall.
-  min_samples_split  : 2
-  min_samples_leaf   : 1
-    # Default leaf/split settings; tighten (e.g. min_samples_leaf: 5) on
-    # noisy or imbalanced datasets to reduce overfitting.
+DATASET_BALANCE_IMPACT:
+•  balanced datasets: 6010 runs, mean accuracy 0.870
+•  imbalanced datasets: 394 runs, mean accuracy 0.781
+•  class imbalance reduces RandomForestClassifier performance by approximately 8.9%
 
-# ----------------------------------------------------------
-# MODEL SELECTION REASONING
-# ----------------------------------------------------------
-MODEL_SELECTION_REASONING: >
-  RandomForestClassifier should be prioritised for datasets with mixed feature
-  types, moderate dimensionality, and non-linear class boundaries.
-  Evidence from 6 405 runs shows consistent accuracy above 0.92 on biomedical
-  and material-science datasets with well-chosen 2–3 feature subsets. The model
-  handles both numerical and categorical inputs natively (with encoding), is
-  robust to feature scale, and benefits from ensemble variance reduction via
-  bootstrap aggregation. It is particularly effective when a small number of
-  features carry strong discriminative signal (e.g. area_mean, concave_points,
-  radius features in breast-cancer; Al + Fe in glass identification).
+FEATURE_TYPE_IMPACT:
+•  numerical-only feature sets: mean accuracy 0.875 (5789 runs)
+•  categorical-only feature sets: mean accuracy 0.770 (407 runs)
+•  mixed feature sets: mean accuracy 0.766 (208 runs)
 
-# ----------------------------------------------------------
-# MODEL AVOIDANCE REASONING
-# ----------------------------------------------------------
-MODEL_AVOIDANCE_REASONING: >
-  Avoid RandomForestClassifier when interpretability of individual decisions
-  is required, as the ensemble of 100 trees is difficult to explain at the
-  instance level. Also avoid when inference latency is critical at scale, since
-  100-tree evaluation per sample adds overhead. For heavily imbalanced targets,
-  use with class_weight: balanced or prefer gradient-boosted alternatives.
-  CSV evidence shows accuracy drops to ~0.70 when feature subsets consist
-  predominantly of low-signal symmetry or smoothness attributes, indicating
-  the model still depends on meaningful feature selection despite its robustness.
+HIGH_ACCURACY_DATASET_DISTRIBUTION (accuracy >= 0.95):
+•  1086 runs achieved >= 0.95 accuracy
+•  numerical biomedical datasets dominated high-accuracy runs
+•  well-structured low-dimensional tabular datasets contributed remaining runs
 
-# ============================================================
-#  END OF FILE
-# ============================================================
+MODEL_SELECTION_REASONING:
+RandomForestClassifier should be prioritized for classification tasks with 2–3 feature subsets on balanced, numerical-dominant datasets where non-linear feature interactions exist. Its ensemble nature makes it robust across biomedical, clinical, and structured tabular domains. Encoding support makes it effective on mixed feature type datasets as well.
+
+MODEL_AVOIDANCE_REASONING:
+Avoid RandomForestClassifier for single weak or uninformative features, highly imbalanced datasets without compensation, and purely categorical feature spaces with low class separability. It also adds computational overhead compared to simpler models when the dataset is small and linear.

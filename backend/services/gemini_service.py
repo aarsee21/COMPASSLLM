@@ -1,4 +1,5 @@
 import json
+import logging
 import re
 from typing import Any
 from pathlib import Path
@@ -6,6 +7,10 @@ from pathlib import Path
 import google.generativeai as genai
 
 from config import get_settings
+
+logger = logging.getLogger(__name__)
+if not logger.handlers:
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(message)s')
 
 settings = get_settings()
 
@@ -176,6 +181,7 @@ def recommend_models_with_gemini(
     sample_data: list[dict[str, Any]] | None = None,
 ) -> dict[str, object]:
     if not settings.gemini_api_key:
+        logger.debug("Gemini API key is not configured; using fallback recommendation.")
         return _fallback_recommendation()
 
     prompt = _build_prompt(
@@ -194,12 +200,28 @@ def recommend_models_with_gemini(
             missing_ratio, imbalance, user_instruction, sample_data, instruction_context
         )
 
+        logger.debug(
+            "Sending Gemini request: model=%s samples=%d features=%d numeric=%d categorical=%d missing_ratio=%.4f imbalance=%.4f prompt_length=%d instruction_context_length=%d",
+            settings.gemini_model,
+            samples,
+            features,
+            numeric,
+            categorical,
+            missing_ratio,
+            imbalance,
+            len(prompt),
+            len(instruction_context or ""),
+        )
+
         response = model.generate_content(prompt)
         text = response.text or ""
+        logger.debug("Gemini raw response text:\n%s", text)
         payload = _extract_json_payload(text)
 
         models = payload.get("models", [])
         reasoning = payload.get("reasoning", "")
+
+        logger.debug("Gemini parsed payload models=%s reasoning=%s", models, reasoning)
 
         if not isinstance(models, list) or not all(isinstance(m, str) for m in models):
             raise ValueError("Gemini response models field is invalid.")
@@ -208,5 +230,6 @@ def recommend_models_with_gemini(
 
         concise_reasoning = _shorten_reasoning(reasoning)
         return {"models": models[:3], "reasoning": concise_reasoning}
-    except Exception:
+    except Exception as exc:
+        logger.exception("Gemini recommendation failed, falling back to defaults.")
         return _fallback_recommendation()

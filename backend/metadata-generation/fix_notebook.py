@@ -15,6 +15,10 @@ Fixes:
    ValueError when a 1-feature combination is passed.
 8. [NEW] Cap sample size for slow O(n²) models (OPTICS, SpectralClustering,
    MeanShift) to 3000 rows so the pipeline finishes in minutes, not hours.
+9. [NEW] Inject correct Results Analysis cell that fixes:
+   - KeyError 'accuracy': metrics are nested in a 'metrics' dict, not flat columns.
+     Uses make_results_df() to flatten them before sort_values().
+   - Wrong status filter: pipeline uses 'success'/'failed', not '✓'/'✗'.
 """
 
 import json
@@ -205,5 +209,77 @@ for patch_key, keyword in CELL_KEYWORDS.items():
         print(f"  ✗ WARNING: cell not found for [{patch_key}] (keyword: {keyword!r})")
 
 print(f"\n{patched_count} cell(s) patched.")
+
+# ── Step 9: Inject / replace the Results Analysis cell (cell index 29) ────────
+RESULTS_ANALYSIS_CELL = """\
+# ── Results Analysis ─────────────────────────────────────────────────────────
+# Run this AFTER cell 27 (the full pipeline run) completes successfully.
+# The pipeline stores results in `summary` (a DataFrame from run_pipeline).
+
+def make_results_df(experiments: list) -> pd.DataFrame:
+    \"\"\"Flatten nested 'metrics' dict into top-level columns for easy sorting.
+
+    Fixes two common errors when working with pipeline output directly:
+      1. KeyError 'accuracy'  — metrics are nested, not flat columns.
+      2. Wrong status filter — pipeline uses 'success'/'failed', not '✓'/'✗'.
+    \"\"\"
+    rows = []
+    for exp in experiments:
+        row = {k: v for k, v in exp.items() if k != 'metrics'}
+        metrics = exp.get('metrics') or {}
+        for metric_key, metric_val in metrics.items():
+            row[metric_key] = metric_val
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+if 'summary' in dir() and not summary.empty:
+    results_df = make_results_df(summary.to_dict('records'))
+else:
+    print("No summary available. Run cell 27 first.")
+    results_df = pd.DataFrame()
+
+if not results_df.empty:
+    # Status values are 'success' and 'failed' (not '✓'/'✗')
+    success_df = results_df[results_df['status'] == 'success'].copy()
+    if 'accuracy' in success_df.columns:
+        results_sorted = success_df.sort_values('accuracy', ascending=False)
+        display_cols = [c for c in ['model_name', 'task_type', 'accuracy', 'precision', 'recall', 'f1_score', 'train_time'] if c in results_sorted.columns]
+        print("\\n=== Classification Results (sorted by accuracy) ===")
+        print(results_sorted[display_cols].to_string(index=False))
+    elif 'r2' in success_df.columns:
+        results_sorted = success_df.sort_values('r2', ascending=False)
+        display_cols = [c for c in ['model_name', 'task_type', 'r2', 'rmse', 'mae', 'train_time'] if c in results_sorted.columns]
+        print("\\n=== Regression Results (sorted by R²) ===")
+        print(results_sorted[display_cols].to_string(index=False))
+    else:
+        print("\\n=== Results (no accuracy/r2 — showing all columns) ===")
+        print(success_df.to_string(index=False))
+"""
+
+code_cells = [c for c in nb["cells"] if c["cell_type"] == "code"]
+
+RESULTS_CELL = {
+    "cell_type": "code",
+    "execution_count": None,
+    "metadata": {},
+    "outputs": [],
+    "source": RESULTS_ANALYSIS_CELL.splitlines(keepends=True),
+}
+
+# Find index of cell 29 (0-based notebook cell index)
+if len(nb["cells"]) > 29:
+    existing_src = "".join(nb["cells"][29].get("source", []))
+    if "make_results_df" in existing_src:
+        print("  ~ Skipped [cell_results_analysis] (already applied)")
+    else:
+        nb["cells"][29] = RESULTS_CELL
+        print("  ✓ Injected [cell_results_analysis] at cell index 29")
+        patched_count += 1
+else:
+    nb["cells"].append(RESULTS_CELL)
+    print("  ✓ Appended [cell_results_analysis] as new cell")
+    patched_count += 1
+
 NOTEBOOK.write_text(json.dumps(nb, indent=1, ensure_ascii=False), encoding="utf-8")
 print(f"Fixed notebook written to: {NOTEBOOK}")

@@ -1,11 +1,12 @@
 MODEL: CatBoostClassifier
 TOTAL_RUNS: 6404
+
 DATASET_TYPES_OBSERVED:
-•  biomedical (breast cancer diagnosis, heart disease)
-•  tabular classification (income, glass type, wine quality)
-•  categorical-dominant datasets (mushroom classification, census income)
-•  botanical/species classification (iris)
-•  mixed numerical and categorical datasets
+•  tabular classification with mixed numerical and categorical features
+•  high-dimensional numerical datasets (30+ features)
+•  low-dimensional categorical-dominant datasets (10–15 features)
+•  imbalanced binary classification tasks
+•  balanced multi-class classification tasks
 
 FEATURE_SUBSET_SIZES:
 •  1-feature subsets: 108 runs
@@ -18,6 +19,10 @@ ACCURACY_DISTRIBUTION:
 •  mean_accuracy: 0.87
 •  median_accuracy: 0.90
 •  std_accuracy: 0.10
+•  P10: 0.705
+•  P25: 0.807
+•  P75: 0.939
+•  P90: 0.965
 
 PRECISION_RECALL_F1:
 •  mean_precision: 0.862
@@ -25,81 +30,74 @@ PRECISION_RECALL_F1:
 •  mean_f1_score: 0.860
 
 BEST_PERFORMING_CONDITIONS:
-•  3-feature subsets (mean accuracy: 0.888)
-•  purely numerical feature spaces
-•  balanced class distributions
-•  encoding enabled for categorical features
-•  low dimensionality with high-signal features (e.g., perimeter_worst, area_worst, odor)
+•  3-feature subsets with predominantly numerical features (avg_size ~2.93, avg_numeric_features ~2.88)
+•  balanced class distributions (96% of very-high-accuracy runs are balanced)
+•  all-numerical feature spaces (mean accuracy: 0.876)
+•  categorical encoding enabled (mean accuracy: 0.871 vs 0.795 without encoding)
+•  datasets with 30+ total features providing rich signal availability
+•  feature subsets where all or nearly all selected features are numerical
 
 LOWEST_PERFORMING_CONDITIONS:
-•  single-feature subsets (mean accuracy: 0.694)
-•  weak or uninformative individual features (e.g., Fe, Si, Ca, Ash)
-•  imbalanced class distributions
-•  purely categorical feature spaces without strong discriminators
-•  mixed feature spaces with low-signal categorical attributes
+•  single-feature subsets (mean accuracy: 0.674, std: 0.150 — highest instability)
+•  imbalanced class distributions (mean accuracy: 0.792 vs 0.871 balanced — 7.9% drop)
+•  all-categorical or majority-categorical feature selections (mean accuracy: 0.770)
+•  mixed numerical + categorical selections without encoding (mean accuracy drops significantly)
+•  feature subsets drawn from datasets with 20–24 total features (mean accuracy: 0.742)
+•  low-information individual features unable to separate classes independently
 
-TOP_FEATURE_PATTERNS:
-•  PetalLengthCm + SepalLengthCm (accuracy: 1.00)
-•  Color.int + Hue + Proline (accuracy: 1.00)
-•  Hue + Mg + Proline (accuracy: 1.00)
-•  Alcohol + Hue + Proline (accuracy: 1.00)
-•  fractal_dimension_worst + perimeter_worst + smoothness_worst (accuracy: 1.00)
-•  odor + spore-print-color (accuracy: 0.993)
-•  area_worst + compactness_mean + perimeter_mean (accuracy: 0.991)
+ACCURACY_BY_FEATURE_SET_SIZE:
+•  1-feature: mean=0.694, std=0.150 (high variance — unstable)
+•  2-feature: mean=0.797, std=0.112
+•  3-feature: mean=0.888, std=0.083 (most stable)
 
-TOP_INDIVIDUAL_FEATURES_BY_AVERAGE_ACCURACY:
-•  PetalLengthCm: 0.992
-•  odor: 0.986
-•  Id: 0.973
-•  perimeter_worst: 0.958
-•  area_worst: 0.957
-•  radius_worst: 0.950
-•  area_mean: 0.939
-•  area_se: 0.938
-•  radius_mean: 0.937
-•  perimeter_mean: 0.933
+ACCURACY_BY_FEATURE_TYPE:
+•  all-numerical subsets: mean=0.876 (5790 runs)
+•  majority-categorical subsets (67–100% categorical): mean=0.770 (410 runs)
+•  mixed subsets (34–66% categorical): mean=0.780 (204 runs)
 
-COMMON_DATASET_CHARACTERISTICS_FOR_HIGH_PERFORMANCE:
-•  feature_count >= 2 (accuracy improves substantially from 1 to 3 features)
-•  low missing value percentage
-•  balanced class distribution
-•  numerical dominance with high-signal features
-•  meaningful categorical features with strong class separability (e.g., odor, spore-print-color)
+ACCURACY_BY_CLASS_BALANCE:
+•  balanced datasets: mean=0.871 (6009 runs)
+•  imbalanced datasets: mean=0.792 (395 runs)
+•  imbalance penalty: ~7.9% average accuracy reduction
 
-OBSERVED_MODEL_BEHAVIOR:
-•  strong performance gains when moving from 1-feature to 3-feature subsets (mean acc: 0.694 → 0.888)
-•  performs well on both numerical and high-signal categorical features
-•  robust on biomedical datasets with structured numerical features
-•  weaker on single low-information features (Fe, Si, Ca) with accuracy as low as 0.21
-•  stable and high-performing on balanced datasets (mean acc: 0.871 vs 0.792 for imbalanced)
-•  achieves perfect accuracy (1.00) on well-separable multi-feature combinations
+ACCURACY_BY_DATASET_FEATURE_RICHNESS:
+•  5–9 total features: mean=0.952 (high signal density per feature)
+•  15–19 total features: mean=0.845
+•  10–14 total features: mean=0.781
+•  20–24 total features: mean=0.742 (most difficult range)
+•  30–34 total features: mean=0.891 (rich feature pool enables better subset selection)
 
 PREPROCESSING_IMPACT:
-•  scaling enabled across all 6404 runs (universal requirement)
-•  encoding enabled improved average accuracy by ~7.6% (0.871 vs 0.795 without encoding)
-•  feature set size increase from 1 to 3 features improved mean accuracy by ~19.4%
-•  noisy or uninformative feature inclusion led to accuracy as low as 0.21
+•  scaling: enabled across all runs — universally required
+•  encoding enabled: mean accuracy 0.871 vs 0.795 without encoding (+7.6%)
+•  encoding is critical for CatBoostClassifier when categorical features are included
+•  increasing feature subset size from 1 to 3 improves mean accuracy by ~19.4%
+•  selecting low-signal features degrades accuracy sharply regardless of preprocessing
 
-DATASET_BALANCE_IMPACT:
-•  relatively balanced datasets: 6009 runs, mean accuracy 0.871
-•  imbalanced datasets: 395 runs, mean accuracy 0.792
-•  class imbalance reduces CatBoostClassifier performance by approximately 7.9%
+OBSERVED_MODEL_BEHAVIOR:
+•  strong accuracy gains as feature set size increases from 1 to 3 (mean: 0.694 → 0.888)
+•  variance decreases as more features are added (std: 0.150 → 0.083) — more features stabilise predictions
+•  very high accuracy tier (>=0.95) is almost exclusively driven by 3-feature, all-numerical, balanced runs
+•  low accuracy tier (<0.70) correlates with smaller feature subsets, lower balance, and mixed feature types
+•  CatBoostClassifier is sensitive to encoding: missing encoding on categorical features causes a measurable drop
+•  performs best when feature subsets are drawn from numerically rich datasets (30+ features)
 
-FEATURE_TYPE_IMPACT:
-•  numerical-only feature sets: mean accuracy 0.876 (5790 runs)
-•  categorical-only feature sets: mean accuracy 0.770 (406 runs)
-•  mixed feature sets: mean accuracy 0.780 (208 runs)
+COMMON_CHARACTERISTICS_OF_HIGH_ACCURACY_RUNS (accuracy >= 0.95):
+•  average feature set size: 2.93 (almost always 3 features)
+•  average numerical features in subset: 2.88 out of 3 (96% numerical)
+•  average categorical features in subset: 0.04 (nearly zero)
+•  96% of runs come from balanced datasets
+•  100% have encoding enabled
 
-HIGH_ACCURACY_DATASET_DISTRIBUTION (accuracy >= 0.95):
-•  1090 runs achieved >= 0.95 accuracy
-•  diagnosis (breast cancer): 1004 of those runs
-•  Type of glass: 46 runs
-•  class (mushroom): 23 runs
-•  Wine: 11 runs
-•  Species (iris): 6 runs
+COMMON_CHARACTERISTICS_OF_LOW_ACCURACY_RUNS (accuracy < 0.70):
+•  average feature set size: 2.35 (more single and 2-feature runs)
+•  average numerical features in subset: 2.01
+•  average categorical features in subset: 0.33 (higher categorical presence)
+•  only 81% from balanced datasets (highest imbalance concentration)
+•  95% have encoding enabled (encoding alone does not rescue weak feature choices)
 
 MODEL_SELECTION_REASONING:
-CatBoostClassifier should be prioritized for classification tasks with 2–3 feature subsets, especially on balanced datasets with numerical or high-signal categorical features. It excels in biomedical and structured tabular domains where features carry strong discriminative power. Encoding support makes it well-suited for datasets with mixed feature types.
+CatBoostClassifier should be prioritised for tabular classification tasks where feature subsets are predominantly numerical, class distributions are balanced, and at least 2–3 features with discriminative power are available. It handles categorical features well when encoding is enabled, and scales reliably to high-dimensional datasets. It is particularly well suited when the dataset has 30+ total features, enabling the selection of high-signal subsets.
 
 MODEL_AVOIDANCE_REASONING:
-Avoid CatBoostClassifier for single-feature subsets or datasets dominated by weak, noisy, or low-information features (e.g., elemental composition fields like Fe, Si, Ca). Performance also degrades noticeably on imbalanced datasets and purely categorical datasets without strong class-separating features.
+Avoid CatBoostClassifier for single-feature classification tasks, heavily imbalanced datasets without resampling, or feature subsets dominated by categorical features without proper encoding. It should not be the first choice when the dataset falls in the 20–24 total feature range without clear numerical signal, or when inference speed and model simplicity are higher priorities than accuracy.

@@ -1,0 +1,195 @@
+MODEL: LightGBMClassifier
+TOTAL_RUNS: 6404
+
+DATASET_TYPES_OBSERVED:
+•  tabular classification with mixed numerical and categorical features
+•  high-dimensional numerical datasets (30+ features)
+•  low-dimensional categorical-dominant datasets (10–15 features)
+•  imbalanced binary classification tasks
+•  balanced multi-class classification tasks
+
+FEATURE_SUBSET_SIZES:
+•  1-feature subsets: 108 runs
+•  2-feature subsets: 1268 runs
+•  3-feature subsets: 5028 runs
+
+ACCURACY_DISTRIBUTION:
+•  min_accuracy: 0.256
+•  max_accuracy: 1.000
+•  mean_accuracy: 0.856
+•  median_accuracy: 0.895
+•  std_accuracy: 0.103
+•  P10: 0.705
+•  P25: 0.789
+•  P75: 0.939
+•  P90: 0.956
+
+PRECISION_RECALL_F1:
+•  mean_precision: 0.852
+•  mean_recall: 0.856
+•  mean_f1_score: 0.850
+
+ROC_AUC:
+•  available_runs: 357
+•  mean_roc_auc: 0.910 (highest among all compared models)
+
+BEST_PERFORMING_CONDITIONS:
+•  3-feature subsets with predominantly numerical features (avg_size ~2.92, avg_numerical ~2.86)
+•  balanced class distributions (94% of very-high-accuracy runs are balanced)
+•  all-numerical feature spaces (mean accuracy: 0.865)
+•  encoding enabled (mean accuracy: 0.859 vs 0.815 without encoding — 4.4% gain)
+•  datasets with 5–9 total features offering maximum signal density (mean accuracy: 0.962)
+•  datasets with 30+ total features enabling high-signal numerical subset selection (mean accuracy: 0.877)
+
+LOWEST_PERFORMING_CONDITIONS:
+•  single-feature subsets (mean accuracy: 0.691, std: 0.140)
+•  imbalanced class distributions (mean accuracy: 0.791 vs 0.860 balanced — 6.9% drop)
+•  datasets with 20–24 total features (mean accuracy: 0.740 — most difficult range)
+•  all-categorical feature subsets (mean accuracy: 0.770)
+•  single-feature imbalanced runs (mean accuracy: 0.569, std: 0.234 — highest instability point)
+
+ACCURACY_BY_FEATURE_SET_SIZE:
+•  1-feature: mean=0.691, std=0.140
+•  2-feature: mean=0.790, std=0.111
+•  3-feature: mean=0.876, std=0.088 (most stable)
+•  Note: LightGBM has the lowest std at 3-feature level (0.088) among all compared models,
+  indicating it is the most stable model at the optimal subset size
+
+ACCURACY_BY_FEATURE_TYPE:
+•  all-numerical subsets: mean=0.865 (5789 runs)
+•  mixed subsets (34–66% categorical): mean=0.778 (204 runs)
+•  majority-categorical subsets (67–100% categorical): mean=0.770 (407 runs)
+•  Note: LightGBM has the narrowest numerical-to-categorical gap (~9.5%) among all compared models,
+  reflecting its native ability to handle categorical features via histogram-based splits
+
+ACCURACY_BY_CLASS_BALANCE:
+•  balanced datasets: mean=0.860 (6010 runs)
+•  imbalanced datasets: mean=0.791 (394 runs)
+•  imbalance penalty: ~6.9% average accuracy reduction
+•  Note: LightGBM has the second-lowest imbalance penalty after DecisionTree (6.6%), and
+  substantially better than GaussianNB (20.7%) and KNN (9.7%)
+
+ACCURACY_BY_DATASET_FEATURE_RICHNESS:
+•  5–9 total features: mean=0.962 (very high signal density per feature)
+•  15–19 total features: mean=0.844
+•  10–14 total features: mean=0.792
+•  20–24 total features: mean=0.740 (most difficult range)
+•  30–34 total features: mean=0.877 (large feature pool supports high-signal subset selection)
+
+SIZE_x_BALANCE_INTERACTION:
+•  size=1, balanced: mean=0.706, std=0.117
+•  size=1, imbalanced: mean=0.569, std=0.234 (maximum instability — avoid)
+•  size=2, balanced: mean=0.784, std=0.110
+•  size=2, imbalanced: mean=0.814, std=0.113 (imbalanced slightly outperforms balanced at size 2 —
+  majority-class signal dominates small feature spaces)
+•  size=3, balanced: mean=0.879, std=0.084 (optimal combination — tightest std across all models)
+•  size=3, imbalanced: mean=0.767, std=0.150
+
+FEATURE_TYPE_x_SIZE_INTERACTION:
+•  size=1, all-numeric: mean=0.687
+•  size=1, all-categorical: mean=0.701 (categorical slightly outperforms numerical at size 1 —
+  unique to LightGBM; reflects its native categorical handling at leaf level)
+•  size=2, all-numeric: mean=0.801
+•  size=2, all-categorical: mean=0.776
+•  size=3, all-numeric: mean=0.877 (optimal)
+
+PREPROCESSING_IMPACT:
+•  scaling: enabled across all runs — universally applied
+•  encoding impact is the smallest of all compared models: +4.4% (0.859 vs 0.815)
+  LightGBM's histogram-based splits are naturally more tolerant of unencoded categorical features
+  than distance-based or probability-based models
+•  feature subset size increase from 1 to 3 features improves mean accuracy by ~18.5%
+•  LightGBM is the least encoding-sensitive model, making it more robust in pipelines
+  where categorical preprocessing is incomplete or inconsistent
+
+HYPERPARAMETER_CONFIGURATION (consistent across all runs):
+•  boosting_type: gbdt (gradient boosted decision trees)
+•  n_estimators: 100
+•  learning_rate: 0.1
+•  num_leaves: 31
+•  max_depth: -1 (unbounded)
+•  reg_alpha: 0.0 (no L1 regularisation)
+•  reg_lambda: 0.0 (no L2 regularisation)
+•  min_child_samples: 20
+•  colsample_bytree: 1.0 (all features used per tree)
+•  subsample: 1.0 (no row subsampling)
+•  class_weight: None
+•  random_state: 42
+•  single unique hyperparameter configuration across all 6404 runs
+
+HYPERPARAMETER_PATTERNS:
+•  no regularisation (reg_alpha=0.0, reg_lambda=0.0) means the model relies purely on
+  ensemble depth and learning rate for generalisation
+•  colsample_bytree=1.0 and subsample=1.0 disable stochastic boosting — all runs use
+  deterministic full-data gradient updates, reducing variance but limiting diversity between trees
+•  num_leaves=31 provides moderate tree complexity — sufficient for most 2–3 feature subsets
+  but may underfit on very high-signal low-dimensional tasks where deeper splits are beneficial
+•  class_weight=None means imbalanced class distributions are not internally corrected,
+  explaining the 6.9% accuracy drop on imbalanced datasets
+•  performance variation is entirely data-driven — no tuning was applied across any run
+
+OBSERVED_MODEL_BEHAVIOR:
+•  most stable model at 3-feature level (std=0.088) across all compared models —
+  gradient boosting ensemble averaging suppresses individual tree noise effectively
+•  highest ROC AUC (0.910) across all compared models, indicating superior class probability
+  ranking even on datasets where accuracy is moderate
+•  at size=1, categorical features slightly outperform numerical (0.701 vs 0.687) — unique behaviour
+  not observed in any other model, driven by LightGBM's histogram-based categorical binning
+•  narrowest numerical-to-categorical performance gap (~9.5%) of all models — most versatile
+  across feature type compositions
+•  size=2 imbalanced runs outperform balanced (0.814 vs 0.784) — a pattern shared with KNN,
+  suggesting majority-class signal dominance in small feature spaces benefits accuracy metrics
+  on majority-heavy test sets
+•  LightGBM's gradient boosting iteratively corrects residuals, making it more robust to
+  low-signal features compared to single-model approaches like GaussianNB or KNN
+•  minimum accuracy floor (0.256) matches KNN — more resilient than GaussianNB (0.140)
+  and DecisionTree (0.210)
+
+COMMON_CHARACTERISTICS_OF_HIGH_ACCURACY_RUNS (accuracy >= 0.95):
+•  average feature set size: 2.92 (almost always 3 features)
+•  average numerical features in subset: 2.86 out of 3 (97% numerical)
+•  average categorical features in subset: 0.05 (near zero)
+•  94% of runs come from balanced datasets
+•  96% have encoding enabled
+
+COMMON_CHARACTERISTICS_OF_LOW_ACCURACY_RUNS (accuracy < 0.70):
+•  average feature set size: 2.42 (higher proportion of 1- and 2-feature runs)
+•  average numerical features in subset: 2.14
+•  average categorical features in subset: 0.28
+•  only 83% from balanced datasets
+•  95% have encoding enabled (encoding alone cannot compensate for weak feature choices)
+
+COMPARISON_TO_OTHER_MODELS:
+•  LightGBM mean accuracy (0.856) ranks second, behind CatBoost (0.870) and above KNN (0.851),
+  GaussianNB (0.837), and DecisionTree (0.830)
+•  LightGBM has the second-lowest std (0.103) after CatBoost (0.100) — second most stable model
+•  LightGBM has the highest ROC AUC (0.910), above KNN (0.895), GaussianNB (0.875),
+  and DecisionTree (0.818) — best probability ranking model of the group
+•  LightGBM has the lowest encoding sensitivity (+4.4%) of all models, making it the most
+  preprocessing-flexible; CatBoost requires +7.6%, KNN +12.0%, GaussianNB +13.9%
+•  LightGBM has the narrowest numerical-to-categorical accuracy gap (~9.5%) vs KNN (13.9%),
+  GaussianNB (18.7%), CatBoost (~10.6%), and DecisionTree (~6.9%)
+•  LightGBM imbalance penalty (6.9%) is nearly identical to DecisionTree (6.6%) and
+  substantially better than KNN (9.7%) and GaussianNB (20.7%)
+•  LightGBM is the only model where single-feature categorical subsets outperform numerical
+  (0.701 vs 0.687), reflecting its native categorical handling advantage
+•  LightGBM and CatBoost are the two most consistent top-performing models; LightGBM edges
+  CatBoost on ROC AUC and categorical tolerance, while CatBoost leads on raw accuracy
+
+MODEL_SELECTION_REASONING:
+LightGBMClassifier should be prioritised when probability calibration quality (ROC AUC) matters
+as much as accuracy, or when datasets contain a mix of numerical and categorical features where
+full encoding cannot be guaranteed. It is the most stable model at 3-feature subsets (lowest std)
+and the least sensitive to encoding, making it robust across varied preprocessing pipelines.
+Particularly well suited for balanced datasets with 30+ total features or compact 5–9 feature
+datasets where signal density is high. Its gradient boosting ensemble provides reliable
+residual correction even on moderately noisy feature combinations.
+
+MODEL_AVOIDANCE_REASONING:
+Avoid LightGBMClassifier for single-feature classification tasks, particularly on imbalanced data
+where the size=1 imbalanced combination produces mean accuracy of 0.569 with the highest observed
+instability (std=0.234). Without class_weight correction, it does not internally compensate for
+class imbalance. For the 20–24 total feature range, all models including LightGBM struggle
+(mean 0.740), and ensemble alternatives with regularisation or resampling should be considered.
+When interpretability is the primary requirement over accuracy or probability ranking,
+DecisionTreeClassifier remains a simpler and more transparent alternative.
